@@ -5,7 +5,28 @@ module.exports = {
   ],
 
   theme: {
-    extend: {},
+    fontFamily: {
+      primary: 'Poppins'
+    }, 
+    container: {
+      padding: {
+        DEFAULT: "30px", 
+        lg: '0', 
+      },
+    }, 
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1440px'
+    },
+    extend: {
+      colors: {
+        primary: '#2222222',
+        secondary: '#F5E6E0'
+      }
+    }
   },
+
   plugins: [],
 }
