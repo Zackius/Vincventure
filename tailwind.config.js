@@ -24,6 +24,9 @@ module.exports = {
       colors: {
         primary: '#2222222',
         secondary: '#F5E6E0'
+      },
+      backgroundImage: {
+        hero : "npm install react-icons --save"
       }
     }
   },
