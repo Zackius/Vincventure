@@ -26,19 +26,18 @@ const CartItem = ({ item }) => {
               <RiDeleteBin5Line className="text-gray-400 hover:text-red-500 transition duration-150" />
             </div>
           </div>
-          <div className=" flex gap-x-2 h-[36px] text-sm">
+          <div className=" flex  h-[20px] text-sm">
             <div className="flex flex-1 max-w-[100px] items-center h-full border  font-medium">
               <div onClick={()=>decreaseAmount(id)} className="flex-1 h-full flex justify-center items-center cursor-pointer">
                 <AiOutlineMinus className="text-black hover:text-red-400 transition duration-100 items-center" />
               </div>
-              <div className="-full flex justify-center items-center px-2">{amount}</div>
+              <div className=" flex justify-center items-center px-2">{amount}</div>
               <div onClick={() =>increaseAmount(id)} className="flex-1 h-full flex justify-center items-center cursor-pointer ">
                 <AiOutlinePlus className=" text-black hover:text-blue-500 transition duration-150" />
               </div>
             </div>
-            
-            <div className="flex-1 max-w-[100px] justify-around items-center  font-medium">$ {price }</div>
-            <div className="flex-1 max-w-[100px] justify-around items-center  font-bold "> $ {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
+            <div className=" flex flex-1 max-w-[80px]  items-center  font-medium">$ {price }</div>
+            <div className=" flex flex-1 max-w-[80px]  items-center  font-bold "> $ {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
            
           </div>
         </div>
