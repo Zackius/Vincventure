@@ -14,9 +14,9 @@ const Sidebar = () => {
     <div
       className={`${
         isOpen ? "right-0" : "-right-full"
-      } w-full  bg-gray-200 fixed top-0 h-full  shadow-2xl md:w-[35vw] xl:max-w-[25vw] transition-all  duration-300 z-20 px-4 lg:px-[25px]`}
+      } w-full  bg-gray-200 fixed top-0 h-full  shadow-2xl md:w-[35vw] xl:max-w-[25vw] transition-all  duration-300 z-20 px-4 lg:px-[20px]`}
     >
-      <div className="flex items-center justify-between py-6 border-b-4">
+      <div className="flex items-center justify-between py-2 border-b-4">
         <div className="uppercase text-sm font-semibold">Shopping Bag {itemAmount }</div>
         <div
           onClick={handleClose}
@@ -38,9 +38,12 @@ const Sidebar = () => {
         <div onClick={()=> clearCart()} className="cursor-pointer py-4 bg-red-600 text-white w-[40px] h-[40px] flex justify-center items-center text-xl">
 <FiTrash2 />
         </div>
+        </div>
       </div>
+      <div className="flex">
+        <Link className="bg-white justify-center flex p-4 items-center w-full font-medium " to={"/"}>View Cart</Link>
+        <Link className="bg-black justify-center flex p-4 items-center w-full font-medium text-white">Checkout</Link>
       </div>
-      
     </div>
   );
 };

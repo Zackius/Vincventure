@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Kitchen } from '../img'
 
 const Hero = () => {
   return (
-    <section className='bg-blue-300 h-[750px] bg-hero bg-no-repeat bg-cover bg-center py-20'>
+    <section className='bg-blue-300 h-[600px] bg-hero bg-no-repeat bg-cover bg-center py-20'>
       <div className='container mx-auto flex justify-around '>
         <div className='flex flex-col justify-center'>
           <div className='flex items-center uppercase'>
@@ -12,9 +13,10 @@ const Hero = () => {
           <h1 className='text-[50px] font-medium'>Sales!! Sales!! <br/>
 <span className='text-[20px]'>Shop for all Home Accessories: Kitchen, Bedroom, Livingroom, <br/> Lighting Essentials, Power tools, Bathroom and many more</span>
           </h1>
+          <Link className="self-start uppercase border-b-2 border-primary" to={'/'}>Shop Here</Link>
         </div>
         <div className='hidden lg:block'>
-          <img className='h-[70vh] w-full pt-8 rounded-full' src={Kitchen} alt="cookeries" />
+          <img className='h-[50vh] w-full pt-8 rounded-full' src={Kitchen} alt="cookeries" />
         </div>
       </div>
    </section>

@@ -10,6 +10,7 @@ const Product = ({ product }) => {
  
   return (
     <div>
+      <Link to={`/product/${id}`}>
       <div className='border border-[#e4e4e4] h-[300px] shadow-2xl  mb-4 relative overflow-hidden group transition '>
         <div className='w-full h-full flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
@@ -34,8 +35,10 @@ const Product = ({ product }) => {
           <h2 className='font-semibold mb-1'>{title}</h2>
           </Link>
         <div className='font-semibold '> $   {price }</div>
-      </div>
+        </div>
+        </Link>
     </div>
+
   )
 }
 
