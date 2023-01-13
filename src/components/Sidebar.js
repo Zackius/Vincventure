@@ -30,14 +30,17 @@ const Sidebar = () => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
-      <div className="bg-pink-300  flex w-full justify-between items-center ">
+      <div className="flex flex-col gap-y-3 py-4 mt-4">
+      <div className=" flex w-full justify-between items-center ">
         <div>
-          <span>Total:</span>$ 
+          <span className="font-bold">Total:</span>$ 
         </div>
         <div onClick={()=> clearCart()} className="cursor-pointer py-4 bg-red-600 text-white w-[40px] h-[40px] flex justify-center items-center text-xl">
 <FiTrash2 />
         </div>
       </div>
+      </div>
+      
     </div>
   );
 };

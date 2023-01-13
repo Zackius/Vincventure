@@ -6,20 +6,20 @@ export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
 
- const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([])
 
 
   const addToCart = (product, id) => {
-    const newItem = {...product, amount: 1}
+    const newItem = { ...product, amount: 1 }
     const cartItem = cart.find((item) => {
       return item.id === id;
-  })
+    })
     if (cartItem) {
       const newCart = [...cart].map((item) => {
         if (item.id === id) {
-          return { ...item, amount: cartItem.amount +1}
+          return { ...item, amount: cartItem.amount + 1 }
         } else {
-          return item 
+          return item
         }
       })
       setCart(newCart)
@@ -29,17 +29,47 @@ const CartProvider = ({ children }) => {
   }
   const removeCartItem = (id) => {
     const newCart = cart.filter((item) => {
-    return item.id !== id
+      return item.id !== id
     })
     setCart(newCart)
    
   }
   const clearCart = () => {
     setCart([])
-   }
+  }
+  const increaseAmount = (id) => {
+    const item = cart.find((item) => item.id === id)
+    addToCart(item, id);
+  }
+  const decreaseAmount = (id) => {
+    const items = cart.find((item) => {
+      return item.id === id
+    })
+  
+    if (cartItem) {
+      const newCart = cart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item, amount: cartItem.amount - 1
+          }
+        } else {
+          return item
+        }
+      })
+
+      setCart(newCart)
+    }
+    if (cartItem.amount < 2) {
+      removeCartItem(id)
+    }
+  }
+    
+
+  
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeCartItem, clearCart}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ cart, addToCart, removeCartItem, clearCart, increaseAmount, decreaseAmount }}>{children}</CartContext.Provider>
   )
- }
+
 export default CartProvider
  
