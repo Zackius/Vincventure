@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
+import { CartContext } from "../contexts/CartContext";
 
 const CartItem = ({ item }) => {
   const { id, title, image, price, amount } = item;
+  const {removeCartItem} =useContext(CartContext)
   return (
     <div className="flex gap-x-4 py-2 lg:px-2 border-b border-gray-200 w-full font-light text-gray-700">
       <div className="w-full min-h-[150px] flex items-center">
@@ -20,7 +22,7 @@ const CartItem = ({ item }) => {
             >
               {title}
             </Link>
-            <div className="text-xl cursor-pointer">
+            <div onClick={()=>removeCartItem(id)} className="text-xl cursor-pointer">
               <RiDeleteBin5Line className="text-gray-400 hover:text-red-500 transition duration-150" />
             </div>
           </div>
