@@ -14,7 +14,12 @@ const ProductDetails = () => {
   if (!product) {
     return <section className='h-screen flex justify-center items-center'>Loading ....</section>
   }
-  const {title, price, description, image} = product 
+  const { title, price, description, image } = product
+
+  const filteredCategory = products.filter((category) => {
+    return category.category === product.category
+  })
+  console.log(filteredCategory)
   return (
     <section className='pt-32 pb-12  lg:py-32  h-screen flex items-center'>
   <div className='container mx-auto'>
