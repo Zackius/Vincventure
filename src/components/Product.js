@@ -11,7 +11,7 @@ const Product = ({ product }) => {
   return (
     <div>
       <Link to={`/product/${id}`}>
-      <div className='border border-[#e4e4e4] h-[300px] shadow-2xl  mb-4 relative overflow-hidden group transition '>
+      <div className='border border-[#e4e4e4] h-[200px] shadow-2xl  mb-4 relative overflow-hidden group transition '>
         <div className='w-full h-full flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
             <img className='max-h-[200px] group-hover:scale-110 transition duration-300'
@@ -32,9 +32,9 @@ const Product = ({ product }) => {
       <div className = ''>
         <div className='text-sm capitalize text-gray-500 mb-1'>{category}</div>
         <Link to={`/product/${id}` }>
-          <h2 className='font-semibold mb-1'>{title}</h2>
+          <h2 className='font-normal  text-xs mb-1'>{title}</h2>
           </Link>
-        <div className='font-semibold '> $   {price }</div>
+        <div className='font-medium text-sm '> $   {price }</div>
         </div>
         </Link>
     </div>

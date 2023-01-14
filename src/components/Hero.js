@@ -4,8 +4,8 @@ import { Kitchen } from '../img'
 
 const Hero = () => {
   return (
-    <section className='bg-blue-300 h-[600px] bg-hero bg-no-repeat bg-cover bg-center py-20'>
-      <div className='container mx-auto flex justify-around '>
+    <section className=' h-[400px] bg-hero bg-no-repeat bg-cover bg-center py-20' >
+      <div className=' bg-yellow-200 shadow-md container mx-auto flex justify-around '>
         <div className='flex flex-col justify-center'>
           <div className='flex items-center uppercase'>
             <div className='text-[40px]'>Vinc  Ventures.</div>
@@ -16,7 +16,7 @@ const Hero = () => {
           <Link className="self-start uppercase border-b-2 border-primary" to={'/'}>Shop Here</Link>
         </div>
         <div className='hidden lg:block'>
-          <img className='h-[50vh] w-full pt-8 rounded-full' src={Kitchen} alt="cookeries" />
+          <img className='h-[45vh] w-full pt-8 rounded-full' src={Kitchen} alt="cookeries" />
         </div>
       </div>
    </section>
