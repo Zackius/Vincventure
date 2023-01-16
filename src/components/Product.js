@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { BsPlus, BsEyeFill } from 'react-icons/bs'
 import { CartContext } from '../contexts/CartContext'
 
+
 const Product = ({ product }) => {
   const { id, image, category, title, price } = product
 

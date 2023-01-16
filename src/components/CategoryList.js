@@ -13,10 +13,10 @@ const CategoryList = () => {
   })
   console.log(product)
   return (
-      <section>
+      <section className='bg-white  pt-12'>
           <div className='flex felx-cols'>
-              <div>
-          {product}
+              <div className=''>
+         {product}
               </div>
           </div>
     </section>

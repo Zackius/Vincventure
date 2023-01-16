@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path ="/product/:id" element = {<ProductDetails/>}/>
         </Routes>
         <Sidebar />
-        <Footer/>
+        {/* <Footer/> */}
 </Router>
   </div>
   );
