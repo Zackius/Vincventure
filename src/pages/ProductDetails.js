@@ -21,8 +21,8 @@ const ProductDetails = () => {
   })
   console.log(filteredCategory)
   return (
-    <section className='w-[600px] h-[600px] float-right pt-44 py-20  flex items-center border shadow-2xl  border-[#b4afaf]'>
-  <div className='container'>
+    <section className='  pt-24 float-right mr-32  flex items-center border shadow-2xl  border-[#b4afaf]'>
+  <div className='w-[500px] h-[300px]'>
         <div className='flex flex-col  lg:flex-row items-center'>
           <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0'>
            <img className='max-w-[200px]' src={image} alt =''/> 
