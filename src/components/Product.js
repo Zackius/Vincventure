@@ -4,19 +4,21 @@ import { BsPlus, BsEyeFill } from 'react-icons/bs'
 import { CartContext } from '../contexts/CartContext'
 
 
-const Product = ({ product }) => {
+const Product = ({ product, categories }) => {
   const { id, image, category, title, price } = product
+
 
   const { addToCart } = useContext(CartContext)
  
   return (
     <div>
-      <Link to={`/product/${id}`}>
       <div className='border border-[#e4e4e4] h-[200px] shadow-2xl  mb-4 relative overflow-hidden group transition '>
         <div className='w-full h-full flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
+          <Link to={`/product/${id}`}>
             <img className='max-h-[200px] group-hover:scale-110 transition duration-300'
-            src={image} alt = "productImage" />
+                src={image} alt="productImage" />
+              </Link>
           </div>
           <div className='absolute top-6  -right-11 group-hover:right-5  p-1  flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300 '>
             <button onClick={() =>addToCart(product, id)}>
@@ -37,7 +39,7 @@ const Product = ({ product }) => {
           </Link>
         <div className='font-medium text-sm '> $   {price }</div>
         </div>
-        </Link>
+       
     </div>
 
   )

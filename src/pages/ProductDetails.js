@@ -21,11 +21,11 @@ const ProductDetails = () => {
   })
   console.log(filteredCategory)
   return (
-    <section className='pt-32 pb-12  lg:py-32  h-screen flex items-center'>
-  <div className='container mx-auto'>
+    <section className='w-[600px] h-[600px] float-right pt-44 py-20  flex items-center border shadow-2xl  border-[#b4afaf]'>
+  <div className='container'>
         <div className='flex flex-col  lg:flex-row items-center'>
           <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0'>
-           <img className='max-w-[100px] lg:max-w-sm' src={image} alt =''/> 
+           <img className='max-w-[200px]' src={image} alt =''/> 
           </div>
           <div className='flex-1 text-center lg:text-left'>
       <h1 className='text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto'> {title}</h1>
