@@ -7,7 +7,7 @@ import { Logo } from '../img'
 const Footer = () => {
   const {categories} = useContext(CategoryContext)
   return (
-    <footer className='bg-white border-t-2 pt-44 px-16  '>
+    <footer className='bg-white border-t-2 pt-8 px-16  '>
   <div className='flex flex-cols justify-evenly'>
         <div>
           <img className='h-[80px] md:h-[50px] sm:h-[30px]' src={Logo} alt="Vinc Ventures" />
@@ -44,10 +44,10 @@ const Footer = () => {
             <AiOutlineInstagram/>
             </Link>
           </div>
-        <p className='text-sm font-light'>At GoldstarNovelty  we are social and we  always<br/>ensure there is maximum integration   to customers <br/> in all accessible platforms.</p>
+        <p className='text-sm font-light'>At Vinc Ventures we are social and we  always<br/>ensure there is maximum integration   to customers <br/> in all accessible platforms.</p>
         </div>
       </div>
-      <div className='flex flex-col text-center pt-4'>
+      <div className='flex flex-col text-center pt-2'>
       <div className=" flex  justify-center">
           <AiOutlineCopyrightCircle size={20} />
         <p >
@@ -60,7 +60,7 @@ const Footer = () => {
      All Right Reserved
         </p>
       </div>
-        <p className='text-md font-thin md:text-sm te'>Privacy | Cookies Policy | Terms and Conditions | Website Accessibility</p>
+        <p className='text-md font-semibold md:text-sm te'>Privacy | Cookies Policy | Terms and Conditions | Website Accessibility</p>
       </div>
     </footer>
   )
