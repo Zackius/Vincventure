@@ -23,8 +23,8 @@ const ProductDetails = () => {
   const { title, price, category, description, image } = product;
 
 
-  const filteredCategory = products.filter((filCat) => {
-           filCat.category === product.category;
+  const filteredCategory = products.filter((category) => {
+           category.category === product.category;
   });
 
   return (
