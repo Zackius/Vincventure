@@ -1,44 +1,77 @@
-import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
-import { CartContext } from '../contexts/CartContext'
-import { ProductContext } from '../contexts/ProductContext'
+import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
+import SameCateoryProduct from "../components/SameCateoryProduct";
+import { CartContext } from "../contexts/CartContext";
+import { ProductContext } from "../contexts/ProductContext";
 
 const ProductDetails = () => {
-  const { id } = useParams()
-  const { products } = useContext(ProductContext)
-  const { addToCart } = useContext(CartContext)
-  
+  const { id } = useParams();
+  const { products } = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
+
   const product = products.find((item) => {
-    return item.id === parseInt(id)
-  })
+    return item.id === parseInt(id);
+  });
   if (!product) {
-    return <section className='h-screen flex justify-center items-center'>Loading ....</section>
+    return (
+      <section className="h-screen flex justify-center items-center">
+        Loading ....
+      </section>
+    );
   }
-  const { title, price, description, image } = product
+  const { title, price, category, description, image } = product;
+
 
   const filteredCategory = products.filter((category) => {
-    return category.category === product.category
-  })
-  console.log(filteredCategory)
-  return (
-    <section className='  pt-24 float-right mr-32  flex items-center border shadow-2xl  border-[#b4afaf]'>
-  <div className='w-[500px] h-[300px]'>
-        <div className='flex flex-col  lg:flex-row items-center'>
-          <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0'>
-           <img className='max-w-[200px]' src={image} alt =''/> 
-          </div>
-          <div className='flex-1 text-center lg:text-left'>
-      <h1 className='text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto'> {title}</h1>
-        <div className='text-xl text-blue-400  font-medium  mb-6'> $ {price} </div>
-          <p  className='mb-8 px-4'>{description}</p>
-            <button onClick={() => addToCart(product, product.id)} className='bg-black py-4 px-8 text-white'>Add to Cart</button>
-            </div>
-        </div>
-        
-</div>
-    </section>
-  
-  )
-}
+    return category.category === product.category;
+  });
 
-export default ProductDetails
+  return (
+    <section className=" pt-32">
+      <div className=" container mx-auto">
+        <div className="flex flex-col w-full h-[600px] float-right border shadow-md  lg:flex-row items-center">
+          <div className="flex flex-1 border-r -4 justify-center items-center ">
+            <img className="max-w-[300px]" src={image} alt="" />
+          </div>
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto">
+          
+              {title}
+            </h1>
+            <p className="text-md capitalize">{category}</p>
+            <div className="text-xl text-blue-400  font-medium  mb-6">
+            
+              $ {price}
+            </div>
+            <div className="mb-8 px-4">{description}</div>
+            <button
+              onClick={() => addToCart(product, product.id)}
+              className="bg-black py-4 px-8 text-white"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <section className="pt-80">
+    
+        <div className="container mx-auto pt-80">
+        <h1 className='text-2xl font-semibold'>More products froms {product.category }</h1>
+        <div className="grid grid-cols-2 sm:max-w-xl  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          {filteredCategory.map((product) => {
+            return (
+              <SameCateoryProduct
+                product={product}
+                className="pt-44"
+                key={product.id}
+              />
+            );
+          })}
+        </div>
+      </div>
+      </section>
+    </section>
+  );
+};
+
+export default ProductDetails;

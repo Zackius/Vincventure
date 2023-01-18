@@ -7,20 +7,20 @@ import { Logo } from '../img'
 const Footer = () => {
   const {categories} = useContext(CategoryContext)
   return (
-    <footer className='bg-white py-8 px-16'>
+    <footer className='bg-white border-t-2 pt-44 px-16  '>
   <div className='flex flex-cols justify-evenly'>
         <div>
-          <img className='h-[80px]' src={Logo} alt="Vinc Ventures" />
+          <img className='h-[80px] md:h-[50px] sm:h-[30px]' src={Logo} alt="Vinc Ventures" />
           
           <p className='text-2xl font-light'>Got any Question?  Call us 24/7 </p>
-          <p className='text-xl font-semibold'>+254 742 347444</p>
+          <p className='text-xl  font-semibold'>+254 742 347444</p>
         </div>
         <div>
-          <h1 className='text-2xl font-semibold'>Product Categories</h1>
+          <h1 className='text-2xl  font-semibold'>Product Categories</h1>
           {
             categories.map((category) => {
               return(
-                <ul className='text-center'>
+                <ul className='text-center '>
                   <li>{category }</li>
                 </ul>
               )
@@ -60,7 +60,7 @@ const Footer = () => {
      All Right Reserved
         </p>
       </div>
-        <p className='text-md font-thin'>Privacy | Cookies Policy | Terms and Conditions | Website Accessibility</p>
+        <p className='text-md font-thin md:text-sm te'>Privacy | Cookies Policy | Terms and Conditions | Website Accessibility</p>
       </div>
     </footer>
   )

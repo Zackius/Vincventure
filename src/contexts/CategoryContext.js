@@ -11,7 +11,6 @@ const CategoryProvider = ({ children }) => {
         }
         fetchCategories()
     }, [ ])
-    console.log(categories)
     return (
         <CategoryContext.Provider value={{categories}
 }>{children}</CategoryContext.Provider>

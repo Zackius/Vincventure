@@ -1,18 +1,15 @@
 import React, { useContext } from 'react'
-import { Link } from "react-router-dom"
-import { BsPlus, BsEyeFill } from 'react-icons/bs'
+import { BsEyeFill, BsPlus } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 import { CartContext } from '../contexts/CartContext'
 
-
-const Product = ({ product, categories }) => {
-  const { id, image, category, title, price } = product
-
-
-  const { addToCart } = useContext(CartContext)
- 
+const SameCateoryProduct = ({ product }) => {
+    const { id, image, category, title, price } = product
+    
+    const{addToCart} = useContext(CartContext)
   return (
-    <div>
-      <div className='border border-[#e4e4e4] h-[250px] shadow-2xl  mb-2 relative overflow-hidden group transition '>
+      <div className=''>
+            <div className='border border-[#e4e4e4] h-[250px] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
         <div className='w-full  flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
           <Link to={`/product/${id}`}>
@@ -40,8 +37,7 @@ const Product = ({ product, categories }) => {
         </div>
       </div>       
     </div>
-
   )
 }
 
-export default Product
+export default SameCateoryProduct

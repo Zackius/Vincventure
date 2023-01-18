@@ -15,7 +15,7 @@ function Home() {
           <Hero />
           <section className='pt-44'>
               <div className='container mx-auto'>
-                  <div className='grid grid-cols-2  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
+                  <div className='grid grid-cols-2 sm:max-w-xl  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
                       {products.map((product) => {
                           return (
                               <Product product={product} categories={categories} className="pt-44" key={product.id} />
