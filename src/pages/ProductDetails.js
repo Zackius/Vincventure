@@ -49,7 +49,7 @@ Loading ......
             <div className="mb-8 px-4">{description}</div>
             <button
               onClick={() => addToCart(product, product.id)}
-              className="bg-black py-4 px-8 text-white"
+              className="bg-black py-4 px-8 text-white rounded-2xl"
             >
               Add to Cart
             </button>

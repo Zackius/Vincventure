@@ -14,7 +14,7 @@ const CategoryProduct = ({}) => {
             {
               categories.map((items) => {
                 return (
-                  <Link to={`/categorylist/${category}`}>
+                  <Link to={`/categorylist/${categories}`}>
                   <div className='border bg-white  border-[#e4e4e4] h-[80px] shadow-2xl '>
                   <div className='w-full  flex justify-center items-center'>
                     <div className='mx-auto flex justify-center text-center items-center pt-6 capitalize font-bold  group-hover:scale-110 transition duration-300'>

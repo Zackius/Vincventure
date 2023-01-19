@@ -22,7 +22,7 @@ const CategoryDetails = () => {
           </section>
         );
     }
-  
+    console.log({catItem})
     return (
         <div className='px-12 bg-slate-300'>
           <section className='pt-16'>
@@ -31,7 +31,7 @@ const CategoryDetails = () => {
                   <div className='grid grid-cols-5 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
                       {product.map((catItem) => {
                           return (
-                              <CategoryList catItem={catItem}  key={cat.id} />
+                              <CategoryList catItem={catItem} key={cat.id} />
                           )
                       })}
                   </div>
