@@ -16,21 +16,19 @@ const ProductDetails = () => {
   if (!product) {
     return (
       <section className="h-screen flex justify-center items-center">
-<Spinner animation="grow" size="md" />;
+        <Spinner animation="grow" size="md" />;
       </section>
     );
   }
   const { title, price, category, description, image } = product;
 
-
   const filteredCategory = products.filter((category) => {
-           category.category === product.category;
-  });
-
+    return category.category === product.category
+  })
   return (
     <section className=" pt-32">
-      <div className=" container mx-auto">
-        <div className="flex flex-col h-[600px] float-right border shadow-md  lg:flex-row items-center">
+      <div className=" md:container md:mx-auto">
+        <div className="flex flex-col  float-right border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
             <img className="max-w-[300px]" src={image} alt="" />
           </div>
@@ -54,11 +52,10 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <section className="pt-80">
-    
+      <section className="pt-12">
         <div className="container mx-auto pt-80">
-        <h1 className='text-2xl font-semibold'>More products froms {product.category }</h1>
-        <div className="grid grid-cols-2 sm:max-w-xl  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[80px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <h1 className='text-2xl hover:underline  p-4 text-center capitalize font-semibold'>More products froms {product.category} category</h1>
+        <div className="grid justify-center grid-cols-2 sm:max-w-xl  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[80px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
           {filteredCategory.map((product) => {
             return (
               <SameCateoryProduct
@@ -68,8 +65,8 @@ const ProductDetails = () => {
               />
             );
           })}
+          </div>
         </div>
-      </div>
       </section>
     </section>
   );
