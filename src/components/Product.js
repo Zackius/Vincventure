@@ -12,11 +12,11 @@ const Product = ({ product, categories }) => {
  
   return (
     <div>
-      <div className='border border-[#e4e4e4] h-[250px] shadow-2xl  mb-2 relative overflow-hidden group transition '>
+      <div className='border bg-white border-[#e4e4e4] h-[250px] shadow-2xl  mb-2 relative overflow-hidden group transition '>
         <div className='w-full  flex justify-center items-center'>
-          <div className='w-[200px] mx-auto flex justify-center items-center'>
+          <div className='w-[150px] mx-auto flex justify-center items-center'>
           <Link to={`/product/${id}`}>
-            <img className='max-h-[150px] pt-4 object-contain group-hover:scale-110 transition duration-300'
+            <img className='max-h-[100px] pt-4 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
               </Link>
           </div>

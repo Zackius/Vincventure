@@ -5,11 +5,11 @@ import { CartContext } from '../contexts/CartContext'
 
 const SameCateoryProduct = ({ product }) => {
     const { id, image, category, title, price } = product
-    console.log(product)
+
     const{addToCart} = useContext(CartContext)
   return (
       <div>
-            <div className='border border-[#e4e4e4] h-[250px] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
+            <div className='border bg-white border-[#e4e4e4] h-[250px] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
         <div className='w-full  flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
           <Link to={`/product/${id}`}>

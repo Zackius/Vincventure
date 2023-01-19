@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
-import Spinner from 'react-bootstrap/Spinner';
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -15,8 +15,12 @@ const ProductDetails = () => {
   });
   if (!product) {
     return (
-      <section className="h-screen flex justify-center items-center">
-        <Spinner animation="grow" size="md" />;
+      <section className="h-screen flex justify-center bg-slate-100 items-center">
+   <button type="button" disabled>
+  <svg class="animate-spin bg-slate-400 h-16 w-16 mr-3 ..." viewBox="0 0 20 20">
+  </svg>
+Loading ......
+</button>
       </section>
     );
   }
@@ -26,9 +30,9 @@ const ProductDetails = () => {
     return category.category === product.category
   })
   return (
-    <section className=" pt-32">
-      <div className=" md:container md:mx-auto">
-        <div className="flex flex-col  float-right border shadow-md  lg:flex-row items-center">
+    <section className=" pt-32 bg-slate-100">
+      <div className=" md:container md:mx-auto ">
+        <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
             <img className="max-w-[300px]" src={image} alt="" />
           </div>
