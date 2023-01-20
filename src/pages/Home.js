@@ -19,7 +19,7 @@ function Home() {
           <section className='pt-16'>
               <div className='container mx-auto' >
                   <h1 className='font-bold text-center  text-2xl'>All Products</h1>
-                  <div className='grid grid-cols-5 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
+                  <div className='grid grid-cols-3  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-5 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
                       {products.map((product) => {
                           return (
                               <Product product={product} categories={categories}  key={product.id} />
