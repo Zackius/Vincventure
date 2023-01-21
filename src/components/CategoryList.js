@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext'
+import { CategoryContext } from '../contexts/CategoryContext'
 
 
 const CategoryList = ({catItem}) => {
   const { id, image, category, title, price } = catItem
-  const{addToCart} =  useContext(CartContext)
 
+  const { addToCart } = useContext(CartContext)
 
-  
+  console.log({catItem})
   return (
 <div>
       <div className='border bg-white border-[#e4e4e4] rounded-xl h-[180px] shadow-2xl  mb-2 relative overflow-hidden group transition '>

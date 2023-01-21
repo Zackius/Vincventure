@@ -9,9 +9,10 @@ const SameCateoryProduct = ({ product }) => {
     const{addToCart} = useContext(CartContext)
   return (
       <div>
-            <div className='border bg-white border-[#e4e4e4] h-[250px] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
-        <div className='w-full  flex justify-center items-center'>
-          <div className='w-[200px] mx-auto flex justify-center items-center'>
+      <div className='border bg-white border-[#e4e4e4] h-[250px] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
+        <div className='container mx-auto'>
+        <div className=' flex justify-center'>
+          <div className='w-[150px] mx-auto flex justify-center items-center'>
           <Link to={`/product/${id}`}>
             <img className='max-h-[150px] pt-4 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
@@ -27,6 +28,7 @@ const SameCateoryProduct = ({ product }) => {
               <BsEyeFill />
             </Link>
           </div> 
+        </div>
         </div>
         <div className = ' text-center'>
         <p className='text-sm capitalize  text-gray-500 mb-1'>{category}</p>

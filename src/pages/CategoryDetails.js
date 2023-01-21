@@ -2,14 +2,18 @@ import React from 'react'
 import { useParams } from "react-router-dom"
 import CategoryList from '../components/CategoryProduct'
 import { ProductContext } from "../contexts/ProductContext";
+// import { CategoryContext } from '../contexts/CategoryContext';
+
 
 const CategoryDetails = () => {
-   const { category } =useParams()
+    const { category } = useParams()
+    // const {categories} = useContext(CategoryContext)
     const { products } = useContext(ProductContext);
-    
+    console
+
 
     const product = products.find((item) => {
-        return item.category === parseInt(category)
+        return item.category === category
     })
     if (!product) {
         return (
@@ -22,7 +26,7 @@ const CategoryDetails = () => {
           </section>
         );
     }
-    console.log({catItem})
+    console.log({product})
     return (
         <div className='px-12 bg-slate-300'>
           <section className='pt-16'>

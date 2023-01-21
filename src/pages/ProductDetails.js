@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
@@ -24,17 +25,18 @@ Loading ......
       </section>
     );
   }
+
   const { title, price, category, description, image } = product;
 
   const filteredCategory = products.filter((category) => {
     return category.category === product.category
   })
   return (
-    <section className=" pt-32 bg-slate-100">
-      <div className=" md:container md:mx-auto ">
+    <section className=" pt-32 bg-slate-100 px-12">
+       <div className=" container mx-auto ">
         <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
-            <img className="max-w-[300px]" src={image} alt="" />
+            <img className="max-w-[200px]" src={image} alt="" />
           </div>
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto">
@@ -56,9 +58,9 @@ Loading ......
           </div>
         </div>
       </div>
-      <section className="pt-12">
+      <section className="pt-16">
         <div className="container mx-auto pt-80">
-          <h1 className='text-2xl hover:underline  p-4 text-center capitalize font-semibold'>More products froms {product.category} category</h1>
+          <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>More products froms {product.category} category</h1>
         <div className="grid justify-center grid-cols-2 sm:max-w-xl  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[80px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
           {filteredCategory.map((product) => {
             return (
@@ -71,6 +73,20 @@ Loading ......
           })}
           </div>
         </div>
+      </section>
+      <section className="pt-16 bg-white" >
+        <div className="container mx-auto">
+          <h1 className="text-center font-semibold"> Product Description</h1>
+
+          <div className="mb-8 px-4">{description.split('.').map((descript) => {
+              return (
+                <ul className="list-disc">
+                  <li>{ descript}</li>
+                </ul>
+              )
+            })}</div>
+   </div>
+        
       </section>
     </section>
   );

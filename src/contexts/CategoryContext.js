@@ -10,7 +10,9 @@ const CategoryProvider = ({ children }) => {
             setCategories(categoryData)
         }
         fetchCategories()
-    }, [ ])
+    }, [])
+    
+
     return (
         <CategoryContext.Provider value={{categories}
 }>{children}</CategoryContext.Provider>
