@@ -4,11 +4,11 @@ import { Kitchen } from "../img";
 
 const Hero = () => {
   return (
-    <section className="bg-hero bg-no-repeat bg-cover bg-center py-32">
+    <section className=" py-24">
       <div className=" bg-yellow-200 shadow-md container mx-auto flex justify-evenly px-5 ">
         <div className="flex flex-col text-center  justify-center ">
-          <h1 className="text-2xl font-bold">Vinc Ventures.</h1>
-          <h2 className=" text-xl  font-semibold">Sales!! Sales!! </h2>
+          <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">Vinc Ventures.</h1>
+          <h2 className=" text-md  font-semibold">Sales!! Sales!! </h2>
           <p className="">
             Shop for all Home Accessories Here 
           </p>

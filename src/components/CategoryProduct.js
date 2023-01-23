@@ -16,14 +16,14 @@ console.log(categories)
     <section>
       <div  className=''>
       <div className='container mx-auto'>
-                  <div className='grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-6  gap-[40px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
+          <div className='flex  gap-20 justify-center text-center'>
             {
               categories.map((items) => {
                 return (
                   <Link to= {`/categorylist/${category}`}>
-                  <div className='border bg-white  border-[#e4e4e4] h-[80px] shadow-2xl '>
-                  <div className='w-full  flex justify-center items-center'>
-                    <div className='mx-auto flex justify-center text-center items-center pt-6 capitalize font-bold  group-hover:scale-110 transition duration-300'>
+                  <div>
+                  <div>
+                    <div className=' capitalize font-bold'>
                    {items}
                           </div>
                         </div>
