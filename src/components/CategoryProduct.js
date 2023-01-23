@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CategoryContext } from '../contexts/CategoryContext'
 
@@ -8,10 +8,13 @@ import { CategoryContext } from '../contexts/CategoryContext'
 const CategoryProduct = () => {
   const { categories } = useContext(CategoryContext)
   const { category } = useParams()
+  
 
+ 
+console.log(categories)
   return (
     <section>
-      <div  className='pt-36'>
+      <div  className=''>
       <div className='container mx-auto'>
                   <div className='grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-6  gap-[40px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
             {
@@ -28,7 +31,7 @@ const CategoryProduct = () => {
                     </Link>
                 )
               })
-                  }
+            }
                   </div>
               </div>
       </div>

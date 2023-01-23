@@ -13,7 +13,7 @@ function Home() {
 
    
   return (
-      <div className=' bg-slate-100 px-12'>
+      <div className=' bg-slate-100 px-4'>
           <Hero />
           <CategoryProduct/>
           <section className='pt-16'>
