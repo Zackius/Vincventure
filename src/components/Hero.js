@@ -7,12 +7,12 @@ const Hero = () => {
     <section className=" py-24">
       <div className=" bg-yellow-200 shadow-md container mx-auto flex justify-evenly px-5 ">
         <div className="flex flex-col text-center  justify-center ">
-          <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">Vinc Ventures.</h1>
-          <h2 className=" text-md  font-semibold">Sales!! Sales!! </h2>
-          <p className="">
+          <h1 className="text-xl md:text-4xl lg:text-6xl xl:text-8xl font-bold">Vinc Ventures <span className="text-blue-300">.</span></h1>
+          <h2 className=" text-md md:text-xl lg:text-3xl xl:text-5xl  font-semibold">Sales!! Sales!! </h2>
+          <p className=" text-blue-300 text-md md:text-lg  lg:text-xl xl:text-3xl">
             Shop for all Home Accessories Here 
           </p>
-          <p> 
+          <p className="p-8 font-bold"> 
           <Link
             className="self-start uppercase border-b-2 border-primary "
             to={"/"}

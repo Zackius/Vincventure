@@ -7,14 +7,15 @@ const CategoryList = ({catItem}) => {
   const { id, image, category, title, price } = catItem
 
   const { addToCart } = useContext(CartContext)
+  console.log(catItem)
 
-  console.log({catItem})
+
   return (
 <div>
       <div className='border bg-white border-[#e4e4e4] rounded-xl h-[180px] shadow-2xl  mb-2 relative overflow-hidden group transition '>
         <div className='w-full  flex justify-center items-center'>
           <div className='w-[100px] mx-auto flex justify-center items-center'>
-          <Link to={`/product/${id}`}>
+          <Link to={`/categorylist/${id}`}>
             <img className='max-h-[100px] pt-4 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
               </Link>
@@ -25,14 +26,14 @@ const CategoryList = ({catItem}) => {
                 <BsPlus className='text-3xl ' />
               </div>
             </button>
-            <Link to={`/product/${id}`} className='w-8 h-8 bg-white items-center  flex justify-center  '>
+            <Link to={`/categorylist/${id}`} className='w-8 h-8 bg-white items-center  flex justify-center  '>
               <BsEyeFill />
             </Link>
           </div> 
         </div>
         <div className = ' text-center'>
         <p className='text-sm capitalize  text-gray-500 mb-1'>{category}</p>
-        <Link to={`/product/${id}` }>
+        <Link to={`/categorylist/${id}` }>
           <h2 className='font-normal object-contain  text-xs'>{title}</h2>
           </Link>
         <div className='font-bold text-sm '> $   {price }</div>

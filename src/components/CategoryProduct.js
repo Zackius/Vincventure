@@ -7,23 +7,20 @@ import { CategoryContext } from '../contexts/CategoryContext'
 
 const CategoryProduct = () => {
   const { categories } = useContext(CategoryContext)
-  const { category } = useParams()
-  
+  const { id} = useParams()
 
- 
-console.log(categories)
   return (
     <section>
       <div  className=''>
       <div className='container mx-auto'>
-          <div className='flex  gap-20 justify-center text-center'>
+          <div className='flex  justify-center text-center'>
             {
               categories.map((items) => {
                 return (
-                  <Link to= {`/categorylist/${category}`}>
+                  <Link to= {`/categorylist/${id}`}>
                   <div>
                   <div>
-                    <div className=' capitalize font-bold'>
+                    <div className=' pl-4 capitalize font-semibold'>
                    {items}
                           </div>
                         </div>

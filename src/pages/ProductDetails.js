@@ -14,6 +14,7 @@ const ProductDetails = () => {
   const product = products.find((item) => {
     return item.id === parseInt(id);
   });
+  console.log(product)
   if (!product) {
     return (
       <section className="h-screen flex justify-center bg-slate-100 items-center">
@@ -31,6 +32,7 @@ Loading ......
   const filteredCategory = products.filter((category) => {
     return category.category === product.category
   })
+  console.log(filteredCategory)
   return (
     <section className=" pt-32 bg-slate-100 px-12">
        <div className=" container mx-auto ">
