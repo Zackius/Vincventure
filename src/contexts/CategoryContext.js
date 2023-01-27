@@ -1,22 +1,22 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-export const CategoryContext=createContext()
+export const CategoryContext = createContext()
+
 const CategoryProvider = ({ children }) => {
+
     const [categories, setCategories] = useState([])
+    
     useEffect(() => {
         const fetchCategories = async () => {
-            const resp = await fetch('https://fakestoreapi.com/products/categories');
+            const resp = await fetch('https://vinc-venture.herokuapp.com/categories');
             const categoryData = await resp.json()
             setCategories(categoryData)
         }
         fetchCategories()
+       
     }, [])
-    
-
-    return (
-        <CategoryContext.Provider value={{categories}
-}>{children}</CategoryContext.Provider>
-  )
+    return  <CategoryContext.Provider value={{categories}}>{children}</CategoryContext.Provider>
+  
 }
 
 export default CategoryProvider 

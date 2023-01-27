@@ -1,50 +1,51 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom"
-import CategoryList from '../components/CategoryProduct'
+import List from "../components/List"
 import { ProductContext } from "../contexts/ProductContext";
 import { CategoryContext } from '../contexts/CategoryContext';
-
+// import { CartContext } from "../contexts/CartContext";
 
 const CategoryDetails = () => {
-    const { category } = useParams()
-    const { categories } = useContext(CategoryContext)
-    const { products } = useContext(ProductContext);
+  const { categories } = useContext(CategoryContext);
+  const { id } = useParams()
+  // const { addToCart } = useContext(CartContext);
+  const { products } = useContext(ProductContext);
 
 
-    const categoryProduct = products.find((item) => {
-        return item.category === category
-    })
+  const categoryProduct = products.filter((item) => {
+    return item.category_id === parseInt(id)
+  })
 
-    console.log({categoryProduct})
-    if (!categoryProduct) {
-        return (
-          <section className="h-screen flex justify-center bg-slate-100 items-center">
-       <button type="button" disabled>
-      <svg class="animate-spin bg-blue-400 h-16 w-16 mr-3 ..." viewBox="0 0 20 20">
-      </svg>
-    Loading ......
-    </button>
-          </section>
-        );
-    }
-
+  console.log({categoryProduct})
+  if (!categoryProduct) {
     return (
-        <div className='px-12 bg-slate-300'>
-          <section className='pt-46'>
-              <div className='container mx-auto' >
-                  <h1 className='font-bold text-center text-2xl'>All Prodhhhhhhucts</h1>
-                  <div className='grid grid-cols-5 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 '>
-                      {categoryProduct.map((catItem) => {
-                          return (
-                              <CategoryList catItem={catItem} key={catItem.id} />
-                          )
-                      })}
-                  </div>
-              </div>
-          </section>
-    </div>
-       
-  )
-}
+      <section className="h-screen flex justify-center bg-slate-100 items-center">
+        <button type="button" disabled>
+          <svg
+            class="animate-spin bg-blue-400 h-16 w-16 mr-3 ..."
+            viewBox="0 0 20 20"
+          ></svg>
+          Loading ......
+        </button>
+      </section>
+    );
+  }
 
-export default CategoryDetails
+
+  return (
+    <div className="px-12 bg-slate-300">
+      <section className="pt-32">
+        <div className="container mx-auto">
+          <h1 className="font-bold text-center text-2xl"></h1>
+          <div className="grid grid-cols-4 sm:max-w-xl  md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-7 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+            {categoryProduct.map((catItem) => {
+              return <List catItem={catItem} key={catItem.id} />;
+            })}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default CategoryDetails;

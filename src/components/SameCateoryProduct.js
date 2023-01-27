@@ -3,18 +3,20 @@ import { BsEyeFill, BsPlus } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../contexts/CartContext'
 
+
 const SameCateoryProduct = ({ product }) => {
-    const { id, image, category, title, price } = product
+  const { id, image, name, price } = product
+
 
     const{addToCart} = useContext(CartContext)
   return (
       <div>
-      <div className='border bg-white border-[#e4e4e4] h-[250px] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
+      <div className='border bg-white border-[#e4e4e4] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
         <div className='container mx-auto'>
         <div className=' flex justify-center'>
-          <div className='w-[150px] mx-auto flex justify-center items-center'>
+          <div className='mx-auto flex justify-center items-center'>
           <Link to={`/product/${id}`}>
-            <img className='max-h-[150px] pt-4 object-contain group-hover:scale-110 transition duration-300'
+            <img className='max-h-[70px] pt-4 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
               </Link>
           </div>
@@ -30,10 +32,9 @@ const SameCateoryProduct = ({ product }) => {
           </div> 
         </div>
         </div>
-        <div className = ' text-center'>
-        <p className='text-sm capitalize  text-gray-500 mb-1'>{category}</p>
+        <div className = ' text-center mt-2'>
         <Link to={`/product/${id}` }>
-          <h2 className='font-normal object-contain  text-xs'>{title}</h2>
+          <h2 className='font-normal object-contain  text-xs'>{name}</h2>
           </Link>
         <div className='font-bold text-sm '> $   {price }</div>
         </div>

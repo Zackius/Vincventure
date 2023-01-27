@@ -4,17 +4,20 @@ import { useParams } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
+import { CategoryContext } from "../contexts/CategoryContext";
+
 
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
+  const {categories} = useContext(CategoryContext)
 
   const product = products.find((item) => {
-    return item.id === parseInt(id);
+return item.id === parseInt(id)
   });
-  console.log(product)
+
   if (!product) {
     return (
       <section className="h-screen flex justify-center bg-slate-100 items-center">
@@ -27,12 +30,11 @@ Loading ......
     );
   }
 
-  const { title, price, category, description, image } = product;
+  const { name,  description, image, price } = product;
+  const filteredCategory = categories.filter((category) => {
+  return category.id === product.id
+})
 
-  const filteredCategory = products.filter((category) => {
-    return category.category === product.category
-  })
-  console.log(filteredCategory)
   return (
     <section className=" pt-32 bg-slate-100 px-12">
        <div className=" container mx-auto ">
@@ -43,9 +45,9 @@ Loading ......
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto">
           
-              {title}
+              {name}
             </h1>
-            <p className="text-md capitalize">{category}</p>
+            <p className="text-md capitalize">{name}</p>
             <div className="text-xl text-blue-400  font-medium  mb-6">
             
               $ {price}
@@ -63,7 +65,7 @@ Loading ......
       <section className="pt-16">
         <div className="container mx-auto pt-80">
           <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>More products froms {product.category} category</h1>
-        <div className="grid justify-center grid-cols-2 sm:max-w-xl  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-6 gap-[80px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+        <div className="grid justify-center grid-cols-4 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-9 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
           {filteredCategory.map((product) => {
             return (
               <SameCateoryProduct

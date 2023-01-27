@@ -4,10 +4,11 @@ import { BsPlus, BsEyeFill } from 'react-icons/bs'
 import { CartContext } from '../contexts/CartContext'
 
 
-const Product = ({ product, categories }) => {
-  const { id, image, category, title, price } = product
 
+const Product = ({ product }) => {
+  const { id, name, price, image} = product
 
+ 
   const { addToCart } = useContext(CartContext)
  
   return (
@@ -31,12 +32,12 @@ const Product = ({ product, categories }) => {
             </Link>
           </div> 
         </div>
-        <div className = ' text-center'>
-        <p className='text-sm capitalize  text-gray-500 mb-1'>{category}</p>
+        <div className = ' text-center mt-2'>
+  
         <Link to={`/product/${id}` }>
-          <h2 className='font-normal object-contain  text-xs'>{title}</h2>
+          <h2 className='font-normal object-contain  text-xs'>{name}</h2>
           </Link>
-        <div className='font-bold text-sm '> $   {price }</div>
+        <div className='font-bold text-sm '>KES  {price }</div>
         </div>
       </div>       
     </div>
