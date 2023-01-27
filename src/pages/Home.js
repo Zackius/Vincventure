@@ -4,6 +4,8 @@ import { CategoryContext } from "../contexts/CategoryContext";
 import Product from "../components/Product";
 import Hero from "../components/Hero";
 import Category from "../components/Category";
+import { CCarousel, CCarouselItem, CCard } from '@coreui/react'
+
 
 
 function Home() {
@@ -15,25 +17,29 @@ function Home() {
     <div className=" bg-slate-200 px-4">
       <Hero />
       <section className="">
-        <div className="container mx-auto bg-white">
+        <div className="container mx-auto">
           <h1 className="font-bold text-center  text-xl">Shop By Categories</h1>
-          <div className="grid grid-cols-4  sm:max-w-xl  md:grid-cols-6  lg:grid-cols-6 xl:grid-cols-8 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <CCard className=" bg-white grid grid-cols-4  sm:max-w-xl  md:grid-cols-6  lg:grid-cols-6 xl:grid-cols-8 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {categories.map((category) => {
               return <Category category={category} key={category.id} />;
             })}
-          </div>
+          </CCard>
         </div>
       </section>
       <section className="pt-8">
         <div className="container mx-auto ">
           <h1 className="font-bold text-2xl"> Kitchen</h1>
-          <div className=" grid grid-cols-3  sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-8 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <CCarousel>
+            <CCarouselItem>
+            <div className=" grid grid-cols-3  sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-8 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products.filter((item) => {
               return item.category_id ===parseInt(1)
             }).slice(0, 8).map((product) => {
               return <Product product={product} key={product.id} />;
             })}
           </div>
+          </CCarouselItem>
+          </CCarousel>
         </div>
       </section>
       <section className="pt-8">
@@ -48,7 +54,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="pt-8">
+      <section className="pt-8 pb-8">
         <div className="container mx-auto ">
           <h1 className="font-bold   text-2xl">Gym & Fitness </h1>
           <div className=" grid grid-cols-3  sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-8 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">

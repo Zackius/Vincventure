@@ -31,13 +31,13 @@ Loading ......
   }
 
   const { name,  description, image, price } = product;
-  const filteredCategory = categories.filter((category) => {
-  return category.id === product.id
+  const filteredCategory = products.filter((catP) => {
+  return catP.catrgory_id === product.catrgory_id
 })
 
   return (
     <section className=" pt-32 bg-slate-100 px-12">
-       <div className=" container mx-auto ">
+       <div className=" container mx-auto h-[400px] w-[900px] ">
         <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
             <img className="max-w-[200px]" src={image} alt="" />

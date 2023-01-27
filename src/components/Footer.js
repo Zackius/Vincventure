@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer className='bg-white border-t-2  pt-8 px-16 container mx-auto '>
-  <div className='flex flex-cols justify-evenly fixed'>
+  <div className='flex flex-cols justify-evenly '>
         <div>
           <img className='h-[80px] md:h-[50px] sm:h-[30px]' src={Logo} alt="Vinc Ventures" />
           
