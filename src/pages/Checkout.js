@@ -1,21 +1,17 @@
 import React, {useContext} from 'react'
 import { CartContext } from "../contexts/CartContext";
-import { Link } from 'react-router-dom';
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { AiOutlineMinus } from "react-icons/ai";
-import { AiOutlinePlus } from "react-icons/ai";
+import Button from '@mui/material/Button';
 
 const Checkout = () => {
-  const { cart, clearCart, total, itemAmount, removeCartItem, increaseAmount, decreaseAmount } = useContext(CartContext);
-  const data = cart.map((item) => {
-    return item
-  })
+  const { cart,  total} = useContext(CartContext);
 
  
   return (
-    <div className='pt-32 px-12 flex-cols '>
-      <form class="w-full max-w-lg border-solid border-1 ">
-  <div class="flex flex-wrap -mx-3 mb-4">
+    <section className='pt-[140px] px-12 '>
+      <form className=' flex  container mx-auto gap-12 justify-center'>
+        <section className='w-[600px]'>
+        <div className='bg-yellow-400 p-4 font-bold m-4 rounded-xl'><h4 className='text-center text-xl bg'>Billing Details </h4></div>
+  <div class="flex -mx-3 mb-4">
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         First Name
@@ -31,7 +27,7 @@ const Checkout = () => {
         </div>
         <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-company-name">
+      <label class=" block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-company-name">
      Company name(optional)
       </label>
       <input class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"/>
@@ -99,46 +95,45 @@ Email
       </label>
       <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text-area" placeholder="Pleace add any other inforamtion that will help us on delivering your product on time.  "/>
           </div>
-        </div>
-        <section>
-<div className="flex gap-x-0.5  lg:px-2 border-b border-gray-200 w-full font-light text-gray-700">
-      <div className="w-full min-h-[150px] flex items-center">
-        <Link to={`/product/${data.id}`}>
-          <img className="max-w-[90px]" src={data.image} alt="Product" />
-        </Link>
-        <div className="w-full flex flex-col">
-          <div className="flex justify-between mb-2">
-            <Link
-              to={`/product/${data.id}`}
-              className="text-sm uppercase max-w-[240px] hover:underline"
-            >
-              {data.title}
-            </Link>
-            <div onClick={()=>removeCartItem(data.id)} className="text-xl cursor-pointer">
-              <RiDeleteBin5Line className="text-gray-400 hover:text-red-500 transition duration-150" />
-            </div>
           </div>
-          <div className=" flex  h-[30px] text-sm">
-            <div className="flex flex-1 max-w-[100px] items-center h-full border  font-medium">
-              <div onClick={()=>decreaseAmount(data.id)} className="flex-1 h-full flex justify-center items-center cursor-pointer">
-                <AiOutlineMinus className="text-black hover:text-red-400 transition duration-100 items-center" />
-              </div>
-              <div className=" flex justify-center items-center px-2">{data.amount}</div>
-              <div onClick={() =>increaseAmount(data.id)} className="flex-1 h-full flex justify-center items-center cursor-pointer ">
-                <AiOutlinePlus className=" text-black hover:text-blue-500 transition duration-150" />
-              </div>
-            </div>
-            <div className=" flex flex-1 max-w-[100px]  items-center  font-sm">KES {data.price }</div>
-            <div className=" flex flex-1 max-w-[120px]  items-center  font-bold "> KES {` ${parseFloat(data.price * data.amount).toFixed(2)}`}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-      </section>
-      </form>
-      
+        </section>
+        {/* Cart products */}
+    
 
-    </div>
+      <section className=' container w-[700px] px-8'>
+        <div className='bg-yellow-400 m-4 p-4 font-bold rounded-xl'><h4 className='text-center text-xl bg'>Your Order</h4></div>
+        
+        <div className='flex flex-row  justify-between  underline mb-4' >
+          <div className='font-bold '>Products</div>
+          <div className='font-bold '>Sub Total (KES)</div>
+       
+
+        </div>
+        {
+          cart.map((item) => {
+            return (
+              <div className="flex gap-x-2 px-8  lg:px-2 border-b border-gray-400 justify-between  container mx-auto font-sm text-black">  
+          <div className="flex mb-2">
+                      <ol class ="list-disc">
+                    <li>{item.name} ( {item.price}) * {item.amount} </li>
+                      </ol>
+                    </div>
+                <div> {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
+          </div>               
+            )
+          })
+        }
+        <div className='flex flex-rows justify-between m-5'>
+          <h1 class=" font-bold text-xl">Total</h1>
+          <h3 className='font-bold text-2xl'> KES {total }</h3>
+        </div>
+        <div class="text-center ">
+       <button className='bg-yellow-400 w-[40vh] p-4 rounded-2xl font-bold  text-xl'>Place Order</button>
+              </div>
+        </section> 
+        </form>
+    </section>
+
   )
 }
 

@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { CartContext } from "../contexts/CartContext";
 
 const CartItem = ({ item }) => {
-  const { id, title, image, price, amount } = item;
+  const { id, name, image, price, amount } = item;
   const {removeCartItem, increaseAmount, decreaseAmount} =useContext(CartContext)
   return (
     <div className="flex gap-x-0.5  lg:px-2 border-b border-gray-200 w-full font-light text-gray-700">
@@ -20,7 +20,7 @@ const CartItem = ({ item }) => {
               to={`/product/${id}`}
               className="text-sm uppercase max-w-[240px] hover:underline"
             >
-              {title}
+              {name}
             </Link>
             <div onClick={()=>removeCartItem(id)} className="text-xl cursor-pointer">
               <RiDeleteBin5Line className="text-gray-400 hover:text-red-500 transition duration-150" />

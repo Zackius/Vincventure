@@ -7,8 +7,8 @@ import { Logo } from '../img'
 const Footer = () => {
 
   return (
-    <footer className='bg-white border-t-2   px-16 '>
-  <div className='flex flex-cols justify-evenly '>
+    <footer className='bg-white border-t-2   px-16 relative '>
+      <div className='flex flex-cols justify-evenly '>
         <div>
           <img className='h-[80px] md:h-[50px] sm:h-[30px]' src={Logo} alt="Vinc Ventures" />
           

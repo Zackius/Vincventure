@@ -17,7 +17,7 @@ const Header = () => {
     })
   })
   return (
-    <header className={`${isActive ? 'bg-white-300'  : 'py-4 shadow-xl'} fixed w-full h-[80px] z-10 px-12 transition-all `}>
+    <header className={`${isActive ? 'bg-white-300'  : 'py-4 shadow-xl'} fixed w-full h-[80px] z-10 px-6 transition-all `}>
       <div className='container mx-auto flex items-center  justify-between h-full '>
       <Link to={'/'}>
         <div>
@@ -25,7 +25,7 @@ const Header = () => {
           </div>
         </Link>
         <div>
-            <input className='w-[700px] h-12 p-6' type='search' placeholder="Use Name or Category"/>
+            <input className='w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] ' type='search' placeholder="Use Name or Category"/>
           </div>
       <div onClick={() => setIsOpen(!isOpen)} className= 'cursor-pointer flex relative'>
         <BsBag className='text-3xl' />

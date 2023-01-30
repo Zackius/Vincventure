@@ -5,7 +5,7 @@ import { Kitchen } from "../img";
 const Hero = () => {
   return (
     <section className=" py-24">
-      <div className=" bg-yellow-200 shadow-md container mx-auto flex justify-evenly px-5 ">
+      <div className=" bg-yellow-300 shadow-md container mx-auto flex justify-evenly px-5 ">
         <div className="flex flex-col text-center  justify-center ">
           <h1 className="text-xl md:text-4xl lg:text-6xl xl:text-8xl font-bold">Vinc Ventures <span className="text-blue-300">.</span></h1>
           <h2 className=" text-md md:text-xl lg:text-3xl xl:text-5xl  font-semibold">Sales!! Sales!! </h2>

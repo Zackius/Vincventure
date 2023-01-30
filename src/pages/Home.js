@@ -35,7 +35,6 @@ function Home() {
                   })
                   .slice(0, 8)
                   .map((product) => {
-                    console.log(products)
                     return <Product product={product} key={product.id} />;
                   })}
               </div>

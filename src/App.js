@@ -7,10 +7,12 @@ import Footer from "./components/Footer";
 import CategoryDetails from "./pages/CategoryDetails";
 import Checkout from "./pages/Checkout"
 
+
 function App() {
   return (
     <div>
       <Router>
+   
         <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
