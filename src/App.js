@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CategoryDetails from "./pages/CategoryDetails";
+import Checkout from "./pages/Checkout"
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path ="/list/:id" element={<CategoryDetails/>}/>
+          <Route path="/list/:id" element={<CategoryDetails />} />
+          <Route path= "/checkout" element ={<Checkout/>} />
         </Routes>
         <Sidebar />
         <Footer/>

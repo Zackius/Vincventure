@@ -16,11 +16,11 @@ const CategoryProduct = ({category }) => {
 
   return (
     <section>
-     <div className='borderborder-[#e4e4e4] rounded-xl shadow-2xl  mb-2 relative overflow-hidden group transition '>
-        <div className=' flex flex-col h-[80px] justify-center items-center'>
-          <div className='w-[100px] mx-auto flex justify-center items-center'>
+     <div className='border-[#e4e4e4] rounded-xl shadow-2xl  mb-2 relative overflow-hidden group transition '>
+        <div className='flex flex-col justify-center items-center'>
+          <div className='w-[70px] mx-auto flex justify-center items-center'>
           <Link to={`/list/${id}`}>
-            <img className='max-h-[60px] pt-4 object-contain group-hover:scale-110 transition duration-300'
+            <img className='max-h-[50px] pt-2 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
               </Link>
           </div>

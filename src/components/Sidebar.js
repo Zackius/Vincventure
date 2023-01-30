@@ -33,7 +33,7 @@ const Sidebar = () => {
       <div className="flex flex-col gap-y-3 py-4 mt-4">
       <div className=" flex w-full justify-between items-center ">
         <div>
-            <span className="font-bold">Total: </span> $ {parseFloat(total).toFixed(2)}
+            <span className="font-bold">Total: </span> KES {parseFloat(total).toFixed(2)}
         </div>
         <div onClick={()=> clearCart()} className="cursor-pointer py-4 bg-red-600 text-white w-[40px] h-[40px] flex justify-center items-center text-xl">
 <FiTrash2 />
@@ -41,8 +41,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="flex">
-        <Link className="bg-white justify-center flex p-4 items-center w-full font-medium " to={"/"}>View Cart</Link>
-        <Link className="bg-black justify-center flex p-4 items-center w-full font-medium text-white">Checkout</Link>
+        <Link to="/checkout" className="bg-blue-300 rounded-xl justify-center flex p-2 items-center w-full font-medium text-black">Checkout</Link>
       </div>
     </div>
   );

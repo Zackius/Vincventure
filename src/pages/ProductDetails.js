@@ -1,10 +1,14 @@
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
 import { CategoryContext } from "../contexts/CategoryContext";
+import Button from '@mui/material/Button';
+import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
+
 
 
 
@@ -12,8 +16,20 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
-  const {categories} = useContext(CategoryContext)
+  const { categories } = useContext(CategoryContext);
+  const [items, setItems] =useState(1)
 
+
+  const handleAddCount = () => {
+    setItems(items + 1)
+  }
+  const handleRemoveItem = () => {
+    if (this.items.value === 1) {
+    this.setItems({items: 1})
+    } else {
+      this.setItems({items: this.items  - 1})
+  }
+  }
   const product = products.find((item) => {
 return item.id === parseInt(id)
   });
@@ -31,16 +47,16 @@ Loading ......
   }
 
   const { name,  description, image, price } = product;
-  const filteredCategory = products.filter((catP) => {
-  return catP.catrgory_id === product.catrgory_id
+  const filteredCategory = categories.filter((cartP) => {
+  return cartP === products.category_id
 })
 
   return (
     <section className=" pt-32 bg-slate-100 px-12">
-       <div className=" container mx-auto h-[400px] w-[900px] ">
+       <div className=" container mx-auto ">
         <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
-            <img className="max-w-[200px]" src={image} alt="" />
+            <img className="max-w-[300px]" src={image} alt="" />
           </div>
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto">
@@ -49,16 +65,25 @@ Loading ......
             </h1>
             <p className="text-md capitalize">{name}</p>
             <div className="text-xl text-blue-400  font-medium  mb-6">
-            
-              $ {price}
+              KES  {price}
             </div>
             <div className="mb-8 px-4">{description}</div>
-            <button
-              onClick={() => addToCart(product, product.id)}
-              className="bg-black py-4 px-8 text-white rounded-2xl"
-            >
-              Add to Cart
-            </button>
+            <div className="flex gap-5">
+              <div>
+              <Button onClick={() => addToCart(product, product.id)}
+                variant="contained">Add To Cart</Button>
+              </div>
+          <div className="flex flex-1 max-w-[200px] items-center h-8 border-2  font-bold">
+                <div onClick={handleRemoveItem}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl">
+                <AiOutlineMinus className="text-black hover:text-red-400 transition duration-100 items-center" />
+              </div>
+                <div className=" flex justify-center items-center px-2">{items }</div>
+              <div onClick={handleAddCount}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl ">
+                <AiOutlinePlus className=" text-black hover:text-blue-500 transition duration-300" />
+              </div>
+            </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -66,7 +91,7 @@ Loading ......
         <div className="container mx-auto pt-80">
           <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>More products froms {product.category} category</h1>
         <div className="grid justify-center grid-cols-4 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-9 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
-          {filteredCategory.map((product) => {
+          {filteredCategory.slice(0, 7).map((product) => {
             return (
               <SameCateoryProduct
                 product={product}
@@ -77,20 +102,6 @@ Loading ......
           })}
           </div>
         </div>
-      </section>
-      <section className="pt-16 bg-white" >
-        <div className="container mx-auto">
-          <h1 className="text-center font-semibold"> Product Description</h1>
-
-          <div className="mb-8 px-4">{description.split('.').map((descript) => {
-              return (
-                <ul className="list-disc">
-                  <li>{ descript}</li>
-                </ul>
-              )
-            })}</div>
-   </div>
-        
       </section>
     </section>
   );

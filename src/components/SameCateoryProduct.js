@@ -13,10 +13,10 @@ const SameCateoryProduct = ({ product }) => {
       <div>
       <div className='border bg-white border-[#e4e4e4] shadow-2xl justify-center mb-2 relative overflow-hidden group transition '>
         <div className='container mx-auto'>
-        <div className=' flex justify-center'>
-          <div className='mx-auto flex justify-center items-center'>
+        <div className='  w-full flex justify-center items-center'>
+          <div className='  w-[150]flex justify-center items-center'>
           <Link to={`/product/${id}`}>
-            <img className='max-h-[70px] pt-4 object-contain group-hover:scale-110 transition duration-300'
+            <img className='max-h-[100px] pt-4 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
               </Link>
           </div>

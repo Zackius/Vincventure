@@ -26,7 +26,7 @@ const CartItem = ({ item }) => {
               <RiDeleteBin5Line className="text-gray-400 hover:text-red-500 transition duration-150" />
             </div>
           </div>
-          <div className=" flex  h-[20px] text-sm">
+          <div className=" flex  h-[30px] text-sm">
             <div className="flex flex-1 max-w-[100px] items-center h-full border  font-medium">
               <div onClick={()=>decreaseAmount(id)} className="flex-1 h-full flex justify-center items-center cursor-pointer">
                 <AiOutlineMinus className="text-black hover:text-red-400 transition duration-100 items-center" />
@@ -36,9 +36,8 @@ const CartItem = ({ item }) => {
                 <AiOutlinePlus className=" text-black hover:text-blue-500 transition duration-150" />
               </div>
             </div>
-            <div className=" flex flex-1 max-w-[80px]  items-center  font-medium">$ {price }</div>
-            <div className=" flex flex-1 max-w-[80px]  items-center  font-bold "> $ {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
-           
+            <div className=" flex flex-1 max-w-[100px]  items-center  font-sm">KES {price }</div>
+            <div className=" flex flex-1 max-w-[120px]  items-center  font-bold "> KES {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
           </div>
         </div>
       </div>

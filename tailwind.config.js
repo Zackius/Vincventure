@@ -9,6 +9,9 @@ module.exports = {
       primary: 'Poppins'
     }, 
     container: {
+      center: true,
+    },
+    container: {
       padding: {
         DEFAULT: "30px", 
         lg: '0', 
