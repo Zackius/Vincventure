@@ -17,23 +17,11 @@ const ProductDetails = () => {
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
   const { categories } = useContext(CategoryContext);
-  const [items, setItems] =useState(1)
 
-
-  const handleAddition = () => {
-    setItems(items + 1)
-  }
-  const handleMinus = () => {
-    if (items <= 1) {
-      return 1
-      
-    } else {
-      setItems(items -1)
-}
-  }
   const product = products.find((item) => {
-return item.id === parseInt(id)
+    return item.id === parseInt(id)
   });
+
 
   if (!product) {
     return (
@@ -74,15 +62,6 @@ Loading ......
               <Button onClick={() => addToCart(product, product.id)}
                 variant="contained">Add To Cart</Button>
               </div>
-          <div className="flex flex-1 max-w-[200px] items-center h-8 border-2  font-bold">
-                <div onClick={handleMinus}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl">
-                <AiOutlineMinus className="text-black hover:text-red-400 transition duration-100 items-center" />
-              </div>
-                <div className=" flex justify-center items-center px-2">{items }</div>
-              <div onClick={handleAddition}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl ">
-                <AiOutlinePlus className=" text-black hover:text-blue-500 transition duration-300" />
-              </div>
-            </div>
             </div>
             
           </div>
