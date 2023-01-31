@@ -11,12 +11,12 @@ function Home() {
   const { categories } = useContext(CategoryContext);
 
   return (
-    <div className=" bg-slate-100 px-12">
+    <div className=" bg-slate-100">
       <Hero />
       <section className="">
         <div className="container mx-auto">
           <h1 className="font-bold text-center  text-2xl mb-4">Shop By Categories</h1>
-          <CCard className=" bg-white grid grid-cols-4  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-6 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <CCard className=" bg-white grid grid-cols-3  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-6 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {categories.map((category) => {
               return <Category category={category} key={category.id}/>;
             })}
@@ -28,7 +28,7 @@ function Home() {
           <h1 className="font-bold text-3xl pb-5"> Kitchen</h1>
           <CCarousel>
             <CCarouselItem>
-            <div  className=" relative  grid grid-cols-3  sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+            <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4   lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
                 {products
                   .filter((item) => {
                     return item.category_id === parseInt(1);
@@ -45,7 +45,7 @@ function Home() {
       <section className="pt-8">
         <div className="container mx-auto ">
           <h1 className="font-bold   text-3xl pb-5">Living Room </h1>
-          <div  className=" relative  grid grid-cols-3  sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4   lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
                 return item.category_id === parseInt(5);
@@ -60,7 +60,7 @@ function Home() {
       <section className="pt-8 pb-8" >
         <div className="container mx-auto ">
           <h1 className="font-bold   text-3xl pb-5">Gym & Fitness </h1>
-          <div  className=" relative  grid grid-cols-3  sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
                 return item.category_id === parseInt(11);

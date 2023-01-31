@@ -20,15 +20,16 @@ const ProductDetails = () => {
   const [items, setItems] =useState(1)
 
 
-  const handleAddCount = () => {
+  const handleAddition = () => {
     setItems(items + 1)
   }
-  const handleRemoveItem = () => {
-    if (this.items.value === 1) {
-    this.setItems({items: 1})
+  const handleMinus = () => {
+    if (items <= 1) {
+      return 1
+      
     } else {
-      this.setItems({items: this.items  - 1})
-  }
+      setItems(items -1)
+}
   }
   const product = products.find((item) => {
 return item.id === parseInt(id)
@@ -52,7 +53,7 @@ Loading ......
 })
 
   return (
-    <section className=" pt-32 bg-slate-100 px-12">
+    <section className=" pt-32 bg-slate-100">
        <div className=" container mx-auto ">
         <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
@@ -68,17 +69,17 @@ Loading ......
               KES  {price}
             </div>
             <div className="mb-8 px-4">{description}</div>
-            <div className="flex gap-5">
+            <div className="flex gap-5 container ">
               <div>
               <Button onClick={() => addToCart(product, product.id)}
                 variant="contained">Add To Cart</Button>
               </div>
           <div className="flex flex-1 max-w-[200px] items-center h-8 border-2  font-bold">
-                <div onClick={handleRemoveItem}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl">
+                <div onClick={handleMinus}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl">
                 <AiOutlineMinus className="text-black hover:text-red-400 transition duration-100 items-center" />
               </div>
                 <div className=" flex justify-center items-center px-2">{items }</div>
-              <div onClick={handleAddCount}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl ">
+              <div onClick={handleAddition}  className="flex-1 h-full flex justify-center items-center cursor-pointer text-2xl ">
                 <AiOutlinePlus className=" text-black hover:text-blue-500 transition duration-300" />
               </div>
             </div>

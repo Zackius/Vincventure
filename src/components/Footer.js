@@ -7,8 +7,8 @@ import { Logo } from '../img'
 const Footer = () => {
 
   return (
-    <footer className='bg-white border-t-2   px-16 relative '>
-      <div className='flex flex-cols justify-evenly '>
+    <footer className='bg-white border-t-2   px-16 '>
+      <div className='flex justify-center gap-6 sm:flex-col-1'>
         <div>
           <img className='h-[80px] md:h-[50px] sm:h-[30px]' src={Logo} alt="Vinc Ventures" />
           
@@ -18,7 +18,7 @@ const Footer = () => {
         <div> 
 
         </div>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col sm:text-sm  md:text-md'>
           <p className='text-2xl font-semibold'>Social Account</p>
           <div className='flex justify-evenly text-4xl'>
             <Link to={'/'}>
@@ -34,7 +34,7 @@ const Footer = () => {
         <p className='text-sm font-light'>At Vinc Ventures we are social and we  always<br/>ensure there is maximum integration   to customers <br/> in all accessible platforms.</p>
         </div>
       </div>
-      <div className='flex flex-col text-center pt-2'>
+      <div className='flexl text-center pt-2'>
       <div className=" flex  justify-center">
           <AiOutlineCopyrightCircle size={20} />
         <p >
