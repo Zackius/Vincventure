@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-// import { CategoryContext } from '../contexts/CategoryContext'
+import React from 'react'
 import {AiOutlineFacebook, AiOutlineTwitter,AiOutlineInstagram, AiOutlineCopyrightCircle } from "react-icons/ai"
 import { Link } from 'react-router-dom'
 import { Logo } from '../img'
@@ -8,10 +7,10 @@ const Footer = () => {
 
   return (
     <footer className='bg-white border-t-2   px-16 '>
-      <div className='flex justify-center gap-6 sm:flex-col-1'>
+      <div className='container mx-auto'>
+      <div className='flex flex-col md:flex-row  justify-center gap-2 sm:flex-col-1'>
         <div>
           <img className='h-[80px] md:h-[50px] sm:h-[30px]' src={Logo} alt="Vinc Ventures" />
-          
           <p className='text-2xl font-light'>Got any Question?  Call us 24/7 </p>
           <p className='text-xl  font-semibold'>+254 742 347444</p>
         </div>
@@ -33,6 +32,7 @@ const Footer = () => {
           </div>
         <p className='text-sm font-light'>At Vinc Ventures we are social and we  always<br/>ensure there is maximum integration   to customers <br/> in all accessible platforms.</p>
         </div>
+      </div>
       </div>
       <div className='flexl text-center pt-2'>
       <div className=" flex  justify-center">

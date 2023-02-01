@@ -10,6 +10,13 @@ function Home() {
   const { products } = useContext(ProductContext);
   const { categories } = useContext(CategoryContext);
 
+
+  const filteredCategories = categories.filter((category) => {
+    return (
+      category.name ==="kitchen" || category.name === "Bathroom" || category.name === "Living Room" || category.name === "Gym & Fitness" || category.name === "Bedroom" 
+    )
+  })
+
   return (
     <div className=" bg-slate-100">
       <Hero />
@@ -17,7 +24,7 @@ function Home() {
         <div className="container mx-auto">
           <h1 className="font-bold text-center  text-2xl mb-4">Shop By Categories</h1>
           <CCard className=" bg-white grid grid-cols-3  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-6 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
-            {categories.map((category) => {
+            {filteredCategories.map((category) => {
               return <Category category={category} key={category.id}/>;
             })}
           </CCard>

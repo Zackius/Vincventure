@@ -8,7 +8,8 @@ const Checkout = () => {
  
   return (
     <section className='pt-[140px] px-12 mb-12 '>
-      <form className=' flex  container mx-auto gap-16 justify-center'>
+      <form className=' container mx-auto '>
+        <div className='flex  gap-12'>
         <section className='w-[700px] shadow-lg  bg-white rounded-lg'>
         <div className='bg-yellow-400 p-4 font-bold m-4 rounded-xl'><h4 className='text-center text-xl bg'>Billing Details </h4></div>
   <div class="flex  mb-4">
@@ -118,7 +119,7 @@ Email
                     <li>{item.name} ( {item.price}) * {item.amount} </li>
                       </ol>
                     </div>
-                <div> {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
+                <div className='font-semibold'> {` ${parseFloat(item.price * item.amount).toFixed(2)}`}</div>
           </div>               
             )
           })
@@ -145,8 +146,9 @@ Email
         <div class="text-center ">
        <button className='bg-yellow-400 w-[40vh] p-4 rounded-2xl font-bold  text-xl'>Place Order</button>
               </div>
-        </section> 
-        </form>
+          </section> 
+          </div>
+      </form>
     </section>
 
   )

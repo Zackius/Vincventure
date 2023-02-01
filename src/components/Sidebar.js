@@ -32,8 +32,8 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col gap-y-3 py-4 mt-4">
       <div className=" flex w-full justify-between items-center ">
-        <div>
-            <span className="font-bold">Total: </span> KES {parseFloat(total).toFixed(2)}
+        <div className="text-black ">
+            <span className="font-bold ">Total: </span> KES {parseFloat(total).toFixed(2)}
         </div>
         <div onClick={()=> clearCart()} className="cursor-pointer py-4 bg-red-600 text-white w-[40px] h-[40px] flex justify-center items-center text-xl">
 <FiTrash2 />

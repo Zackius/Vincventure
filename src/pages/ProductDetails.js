@@ -6,8 +6,7 @@ import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
 import { CategoryContext } from "../contexts/CategoryContext";
 import Button from '@mui/material/Button';
-import { AiOutlineMinus } from "react-icons/ai";
-import { AiOutlinePlus } from "react-icons/ai";
+
 
 
 
@@ -42,7 +41,7 @@ Loading ......
 
   return (
     <section className=" pt-32 bg-slate-100">
-       <div className=" container mx-auto ">
+      <div className=" grid md:grid-cols-1 ">
         <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
             <img className="max-w-[300px]" src={image} alt="" />
@@ -67,9 +66,22 @@ Loading ......
           </div>
         </div>
       </div>
-      <section className="pt-16">
-        <div className="container mx-auto pt-80">
-          <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>More products froms {product.category} category</h1>
+      <section>
+        <div className="font-bold  text-1xl text-center p-6">Product Description</div>
+        <div className="text-center">
+          <>{description.split(".").map((list) => {
+            return(
+<ol class ="list-disc">
+                    <li>{list} </li>
+                      </ol>
+            )
+            
+          }) }</>
+        </div>
+       </section>
+      <section>
+        <div className="container mx-auto">
+          <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>More products froms  category</h1>
         <div className="grid justify-center grid-cols-4 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-9 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
           {filteredCategory.slice(0, 7).map((product) => {
             return (
