@@ -7,10 +7,10 @@ const Checkout = () => {
 
  
   return (
-    <section className='pt-[140px] px-6 mb-12 '>
+    <section className='pt-[140px] px-6 md:px-12 mb-12 '>
       <form>
-        <div className=' flex flex-col  gap-12 '>
-        <section className= 'shadow-lg flex-1 '>
+        <div className=' flex flex-col md:flex-row  gap-12 '>
+        <section className= 'shadow-lg flex-1  '>
         <div className='bg-yellow-400 p-4 font-bold m-4 rounded-xl'><h4 className='text-center text-xl bg'>Billing Details </h4></div>
   <div class="flex  mb-4">
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
