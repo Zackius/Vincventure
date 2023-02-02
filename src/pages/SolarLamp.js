@@ -95,10 +95,10 @@ export const SolarLamp = () => {
             <label className='text-xl font-bold'>Select Your Offer  <span className='text-red-600'>*</span> </label>
 
             <div className='flex flex-rows gap-4'>
-                <input type="checkbox" name='solar_lamp'  value="1 PC AT KES. 3,500"/><p>1 PC AT KES. 2,999</p> 
+                <input type="checkbox" name='1piece_solar_lamp'  value="1 PC AT KES. 2,999"/><p>1 PC AT KES. 2,999</p> 
             </div>
             <div className='flex flex-rows gap-4'>
-            <input type="checkbox" name ="solar_lamp" value="2PC AT KES. 6500"/><p>2PC AT KES. 6500</p>
+            <input type="checkbox" name ="2pieces_solar_lamp" value="2PC AT KES. 5,500"/><p>2PC AT KES. 5,500</p>
   </div>
           
           </div>

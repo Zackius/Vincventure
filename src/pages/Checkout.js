@@ -7,10 +7,10 @@ const Checkout = () => {
 
  
   return (
-    <section className='pt-[140px] px-12 mb-12 '>
-      <form className=' container mx-auto '>
-        <div className='flex  gap-12'>
-        <section className='w-[700px] shadow-lg  bg-white rounded-lg'>
+    <section className='pt-[140px] px-6 mb-12 '>
+      <form>
+        <div className=' flex flex-col  gap-12 '>
+        <section className= 'shadow-lg flex-1 '>
         <div className='bg-yellow-400 p-4 font-bold m-4 rounded-xl'><h4 className='text-center text-xl bg'>Billing Details </h4></div>
   <div class="flex  mb-4">
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -101,7 +101,7 @@ Email
         {/* Cart products */}
     
 
-      <section className='w-[700px] px-8 shadow-lg'>
+      <section className=' px-8 shadow-lg flex-1 ' >
         <div className='bg-yellow-400 m-4 p-4 font-bold rounded-xl'><h4 className='text-center text-xl bg'>Your Order</h4></div>
         
         <div className='flex flex-row  justify-between  underline mb-4' >
@@ -143,8 +143,8 @@ Email
             </div>
           </div>
 
-        <div class="text-center ">
-       <button className='bg-yellow-400 w-[40vh] p-4 rounded-2xl font-bold  text-xl'>Place Order</button>
+        <div class="text-center p-4 ">
+       <button className='bg-yellow-400 w-[20vh] md:w-[40vh] p-4 rounded-2xl font-bold  text-xl'>Place Order</button>
               </div>
           </section> 
           </div>

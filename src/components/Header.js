@@ -27,7 +27,7 @@ const Header = () => {
           <img className='h-[40px] ' src={Logo} alt="Vinc Ventures"/>
           </div>
         </Link>
-        <div className='block'>
+        <div className='invisible  md:visible'>
           <input onChange={(e) => setSearch(e.target.value)} className='w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] ' type='search' placeholder="Use Name or Category " />
       
         </div>
