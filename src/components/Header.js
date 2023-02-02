@@ -11,6 +11,8 @@ const Header = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext)
   const { itemAmount } = useContext(CartContext)
   const [isActive, setIsActive] = useState(false)
+  const [search, setSearch] = useState()
+
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -26,14 +28,15 @@ const Header = () => {
           </div>
         </Link>
         <div>
-            <input className='w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] ' type='search' placeholder="Use Name or Category "/>
-          </div>
+          <input onChange={(e) => setSearch(e.target.value)} className='w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] ' type='search' placeholder="Use Name or Category " />
+      
+        </div>
+
       <div onClick={() => setIsOpen(!isOpen)} className= 'cursor-pointer flex relative'>
         <BsBag className='text-3xl' />
         <div className='bg-red-500 absolute  -right-2 bottom-0.5 text-[14px] w-[18px]  h-[18px] text-white rounded-full  flex justify-center items-center'> {itemAmount}</div>
       </div>
       </div>
-  
     </header>
   )
 }

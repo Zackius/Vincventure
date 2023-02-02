@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import CategoryDetails from "./pages/CategoryDetails";
 import Checkout from "./pages/Checkout"
 import StarterHeader from "./components/StarterHeader";
+import { SolarLamp } from "./pages/SolarLamp";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/list/:id" element={<CategoryDetails />} />
+          <Route path="/solarlamp" element={<SolarLamp/>}/>
           <Route path= "/checkout" element ={<Checkout/>} />
         </Routes>
         <Sidebar />

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { CategoryContext } from "../contexts/CategoryContext";
 import Product from "../components/Product";
@@ -6,9 +6,10 @@ import Hero from "../components/Hero";
 import Category from "../components/Category";
 import { CCarousel, CCarouselItem, CCard } from "@coreui/react";
 
-function Home() {
+function Home({ search}) {
   const { products } = useContext(ProductContext);
   const { categories } = useContext(CategoryContext);
+ 
 
 
   const filteredCategories = categories.filter((category) => {
