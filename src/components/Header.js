@@ -9,7 +9,7 @@ import { Logo } from '../img'
 
 const Header = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext)
-  const { itemAmount } = useContext(CartContext)
+  const { itemAmount, total } = useContext(CartContext)
   const [isActive, setIsActive] = useState(false)
   const [search, setSearch] = useState()
 
@@ -34,8 +34,9 @@ const Header = () => {
 
       <div onClick={() => setIsOpen(!isOpen)} className= 'cursor-pointer flex relative'>
         <BsBag className='text-3xl' />
-        <div className='bg-red-500 absolute  -right-2 bottom-0.5 text-[14px] w-[18px]  h-[18px] text-white rounded-full  flex justify-center items-center'> {itemAmount}</div>
-      </div>
+          <div className='bg-red-500 absolute  -right-2 bottom-0.5 text-[14px] w-[18px]  h-[18px] text-white rounded-full  flex justify-center items-center'> {itemAmount}</div>
+        </div>
+        <p className='font-bold'>KES  {total }</p>
       </div>
     </header>
   )
