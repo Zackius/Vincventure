@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { SidebarContext } from '../contexts/SidebarContext'
 import { CartContext } from '../contexts/CartContext'
-import {BsBag} from "react-icons/bs"
+import { BsBag } from "react-icons/bs"
+import {AiOutlineSearch} from "react-icons/ai"
 import { Link } from 'react-router-dom'
 import { Logo } from '../img'
 
@@ -25,7 +26,7 @@ const Header = () => {
           </div>
         </Link>
         <div>
-            <input className='w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] ' type='search' placeholder="Use Name or Category"/>
+            <input className='w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] ' type='search' placeholder="Use Name or Category "/>
           </div>
       <div onClick={() => setIsOpen(!isOpen)} className= 'cursor-pointer flex relative'>
         <BsBag className='text-3xl' />

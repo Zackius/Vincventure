@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
@@ -35,16 +35,16 @@ Loading ......
   }
 
   const { name,  description, image, price } = product;
-  const filteredCategory = categories.filter((cartP) => {
-  return cartP === products.category_id
+  const filteredCategory = products.filter((cartP) => {
+  return cartP.category_id === product.category_id
 })
 
   return (
     <section className=" pt-32 bg-slate-100">
-      <div className=" grid md:grid-cols-1 ">
+   <div className=" grid md:grid-cols-1">
         <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
-            <img className="max-w-[300px]" src={image} alt="" />
+            <img className="max-w-[400px]" src={image} alt="" />
           </div>
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto">
@@ -56,8 +56,8 @@ Loading ......
               KES  {price}
             </div>
             <div className="mb-8 px-4">{description}</div>
-            <div className="flex gap-5 container ">
-              <div>
+            <div className="flex gap-5 container justify-center pb-3 ">
+              <div className="justify-center">
               <Button onClick={() => addToCart(product, product.id)}
                 variant="contained">Add To Cart</Button>
               </div>
@@ -81,8 +81,8 @@ Loading ......
        </section>
       <section>
         <div className="container mx-auto">
-          <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>More products froms  category</h1>
-        <div className="grid justify-center grid-cols-4 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-9 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <h1 className='text-2xl hover:underline  p-16 text-center capitalize font-semibold'>Related Products</h1>
+        <div className="grid justify-center grid-cols-2 sm:max-w-xl  md:grid-cols-5  lg:grid-cols-7 xl:grid-cols-9 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
           {filteredCategory.slice(0, 7).map((product) => {
             return (
               <SameCateoryProduct

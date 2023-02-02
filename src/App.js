@@ -6,14 +6,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CategoryDetails from "./pages/CategoryDetails";
 import Checkout from "./pages/Checkout"
+import StarterHeader from "./components/StarterHeader";
 
 
 function App() {
   return (
     <div>
       <Router>
-   
-        <Header/>
+        <StarterHeader/>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
