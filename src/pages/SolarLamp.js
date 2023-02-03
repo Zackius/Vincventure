@@ -61,7 +61,7 @@ export const SolarLamp = () => {
         <h2 className='text-2xl font-bold md:text-4xl text-red-600 capitalize text-center underline p-4'>PRICING & DELIVERY</h2>
         <div className='grid grid-cols-2 gap-5 '>
           <div className= 'border-2 border-yellow-400 mx-auto md:w-[400px] md:h-[200px] md:p-20 '>
-          <h1 className='text-center text-sm p-4 font-bold  line-through place-content-center md:text-2xl  '>Normal Price KES 4500</h1>
+          <h1 className='text-center text-sm p-3 font-bold  line-through place-content-center md:text-2xl  '>Normal Price KES 4500</h1>
           </div>
           <div className='border-2 border-red-600 mx-auto md:w-[400px] md:h-[200px] md:p-12' >
             <p className='text-center text-sm font-semibold  md:text-2xl  md:font-bold '>OFFER PRICE KES 2,999<br/>

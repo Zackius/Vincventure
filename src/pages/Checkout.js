@@ -1,9 +1,11 @@
 import React, {useContext} from 'react'
 import { CartContext } from "../contexts/CartContext";
 import Button from '@mui/material/Button';
+import { SidebarContext } from '../contexts/SidebarContext';
 
 const Checkout = () => {
-  const { cart,  total} = useContext(CartContext);
+  const { cart, total } = useContext(CartContext);
+  const { isOpen, handleClose } = useContext(SidebarContext);
 
  
   return (

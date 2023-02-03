@@ -16,7 +16,7 @@ const SameCateoryProduct = ({ product }) => {
         <div className='  w-full flex justify-center items-center'>
           <div className='  w-[150]flex justify-center items-center'>
           <Link to={`/product/${id}`}>
-            <img className='max-h-[100px] pt-4 object-contain group-hover:scale-110 transition duration-300'
+            <img className='max-h-[200px] pt-4 object-contain group-hover:scale-110 transition duration-300'
                 src={image} alt="productImage" />
               </Link>
           </div>

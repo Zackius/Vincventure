@@ -33,11 +33,11 @@ const CategoryDetails = () => {
 
 
   return (
-    <div className="px-12 bg-slate-300">
+    <div className="px-2 bg-slate-300">
       <section className="pt-32">
         <div className="container mx-auto">
           <h1 className="font-bold text-center text-2xl"></h1>
-          <div className="grid grid-cols-4 sm:max-w-xl  md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-7 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <div className="grid grid-cols-3 sm:max-w-md  md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-[5px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {categoryProduct.map((catItem) => {
               return <List catItem={catItem} key={catItem.id} />;
             })}
