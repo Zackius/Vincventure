@@ -6,20 +6,21 @@ import ProductProvider from './contexts/ProductContext';
 import SidebarProvider from './contexts/SidebarContext';
 import CartProvider from './contexts/CartContext';
 import CategoryProvider from './contexts/CategoryContext';
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
+  <React.StrictMode>
   <SidebarProvider>
     <CartProvider>
       <CategoryProvider>
       <ProductProvider>
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-    </React.StrictMode>
+    </BrowserRouter>
     </ProductProvider>  
       </CategoryProvider>
     </CartProvider>
   </SidebarProvider>
- 
+  </React.StrictMode>
 );

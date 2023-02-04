@@ -4,7 +4,7 @@ import { Solar2 } from "../img"
 import { Panel } from "../img"
 import {Solar} from "../img"
 
-export const SolarLamp = () => {
+const SolarLamp = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -117,3 +117,4 @@ export const SolarLamp = () => {
     
   )
 }
+export default SolarLamp
