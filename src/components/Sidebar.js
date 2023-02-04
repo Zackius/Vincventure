@@ -7,20 +7,22 @@ import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 
 const Sidebar = () => {
-  const { isOpen, handleClose } = useContext(SidebarContext);
+  const { isOpen, handleClose, setIsOpen } = useContext(SidebarContext);
   const { cart, clearCart, total, itemAmount } = useContext(CartContext);
-
-  const openCart = () => {
-    if (itemAmount.length === 0) {
-      return !isOpen
-    }
+ 
+  const handleSideBarOpen = () =>{
+    if(itemAmount === 0) {
+handleClose(true)
+    } 
   }
+
+handleSideBarOpen(setIsOpen)
 
   return (
     <section
       className={`${
-        isOpen ? "right-0" : "-right-full"
-      }   bg-white fixed top-0  shadow-2xl md:w-[35vw] xl:max-w-[25vw] transition-all  duration-300 z-20 px-4 lg:px-[20px]`}>
+ isOpen ? "right-0" : "-right-full"
+      }   bg-slate-300 fixed top-0  shadow-2xl md:w-[35vw] xl:max-w-[25vw] transition-all  duration-300 z-20 px-4 lg:px-[20px]`}>
       <div className="flex items-center justify-between py-2 border-b-4">
         <div className="uppercase text-sm font-semibold">Shopping Bag {itemAmount }</div>
         <div
@@ -35,7 +37,10 @@ const Sidebar = () => {
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
-          <div className="flex flex-col gap-y-3 py-4">
+        
+         
+        </div>
+        <div className="flex flex-col gap-y-3 py-4">
             <div >
               <div className=" flex w-full justify-between items-center ">
               <div className="text-black ">
@@ -50,8 +55,6 @@ const Sidebar = () => {
         <Link   onClick={handleClose}  to="/checkout" className="bg-blue-300 rounded-xl justify-center flex p-2 items-center w-full font-medium text-black">Checkout</Link>
         </div>
           </div>
-         
-        </div>
     
         </div>
     </section>
