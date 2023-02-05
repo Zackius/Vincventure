@@ -11,9 +11,12 @@ const Sidebar = () => {
   const { cart, clearCart, total, itemAmount } = useContext(CartContext);
  
   const handleSideBarOpen = () =>{
-    if(itemAmount === 0) {
-handleClose(true)
+    if (itemAmount === 0) {
+
+      handleClose(true)
+     
     } 
+ 
   }
 
 handleSideBarOpen(setIsOpen)
@@ -52,7 +55,7 @@ handleSideBarOpen(setIsOpen)
               </div>
             </div>
             <div className="">
-        <Link   onClick={handleClose}  to="/checkout" className="bg-blue-300 rounded-xl justify-center flex p-2 items-center w-full font-medium text-black">Checkout</Link>
+        <Link   onClick={handleClose}  to="/checkoutform" className="bg-blue-300 rounded-xl justify-center flex p-2 items-center w-full font-medium text-black">Checkout</Link>
         </div>
           </div>
     

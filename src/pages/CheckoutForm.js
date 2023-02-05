@@ -3,7 +3,7 @@ import { CartContext } from "../contexts/CartContext";
 import Button from '@mui/material/Button';
 import { SidebarContext } from '../contexts/SidebarContext';
 
-const Checkout = () => {
+const CheckoutForm = () => {
   const { cart, total } = useContext(CartContext);
   const { isOpen, handleClose } = useContext(SidebarContext);
 
@@ -156,4 +156,4 @@ Email
   )
 }
 
-export default Checkout
+export default CheckoutForm

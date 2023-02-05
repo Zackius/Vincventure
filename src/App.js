@@ -14,17 +14,18 @@ import {
 function App() {
   return (
     <div>
+
       <StarterHeader />
       <Header/>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/product/:id" element={<ProductDetails />}></Route>
-        <Route path="/list/:id" element={<CategoryDetails />}></Route>
-        <Route path="/solarlamp" element={<SolarLamp />}></Route>
-        <Route path="/checkoutform" element={<CheckoutForm />}></Route>
+        <Route path="/" element={<Home />}> </Route>
+        <Route path="/product/:id" element={<ProductDetails />}/>
+        <Route path="/list/:id" element={<CategoryDetails />}/>
+        <Route path="solarlamp" element={<SolarLamp />} />
+        <Route path="checkoutform" element={<CheckoutForm />} />
       </Routes>
       <Sidebar />
-      <Footer/>
+        <Footer />
     </div>
   );
 }
