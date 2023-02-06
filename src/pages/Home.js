@@ -4,7 +4,6 @@ import { CategoryContext } from "../contexts/CategoryContext";
 import Product from "../components/Product";
 import Hero from "../components/Hero";
 import Category from "../components/Category";
-import { CCarousel, CCarouselItem, CCard } from "@coreui/react";
 
 function Home({ search}) {
   const { products } = useContext(ProductContext);
@@ -24,18 +23,17 @@ function Home({ search}) {
       <section className="">
         <div className="container mx-auto">
           <h1 className="font-bold text-center  text-2xl mb-4">Shop By Categories</h1>
-          <CCard className=" bg-white grid grid-cols-3  sm:max-w-sm  md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 gap-[10px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
+          <div className=" bg-white grid grid-cols-3  sm:max-w-sm  md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 gap-[10px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {filteredCategories.map((category) => {
               return <Category category={category} key={category.id}/>;
             })}
-          </CCard>
-        </div>
+    
+          </div>
+          </div>
       </section>
       <section className="pt-8">
         <div className="container mx-auto ">
           <h1 className="font-bold text-3xl pb-5"> Kitchen</h1>
-          <CCarousel>
-            <CCarouselItem>
             <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4   lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
                 {products
                   .filter((item) => {
@@ -46,8 +44,8 @@ function Home({ search}) {
                     return <Product product={product} key={product.id} />;
                   })}
               </div>
-            </CCarouselItem>
-          </CCarousel>
+
+  
         </div>
       </section>
       <section className="pt-8">
