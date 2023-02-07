@@ -1,6 +1,6 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useContext} from "react";
+import { useParams } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
