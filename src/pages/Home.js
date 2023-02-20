@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { CategoryContext } from "../contexts/CategoryContext";
 import Product from "../components/Product";
 import Hero from "../components/Hero";
 import Category from "../components/Category";
 
-function Home({ search}) {
+function Home() {
   const { products } = useContext(ProductContext);
   const { categories } = useContext(CategoryContext);
  
@@ -33,7 +33,7 @@ function Home({ search}) {
       </section>
       <section className="pt-8">
         <div className="container mx-auto ">
-          <h1 className="font-bold text-3xl pb-5"> Kitchen</h1>
+          <h1 className="font-medium  text-2xl pb-5"> Kitchen</h1>
             <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4   lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
                 {products
                   .filter((item) => {
@@ -50,7 +50,7 @@ function Home({ search}) {
       </section>
       <section className="pt-8">
         <div className="container mx-auto ">
-          <h1 className="font-bold   text-3xl pb-5">Living Room </h1>
+          <h1 className="font-medium    text-2xl pb-5">Living Room </h1>
           <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4   lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
@@ -65,7 +65,7 @@ function Home({ search}) {
       </section>
       <section className="pt-8 pb-8" >
         <div className="container mx-auto ">
-          <h1 className="font-bold   text-3xl pb-5">Gym & Fitness </h1>
+          <h1 className="font-medium    text-2xl pb-5">Gym & Fitness </h1>
           <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
