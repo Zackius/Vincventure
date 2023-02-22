@@ -9,6 +9,7 @@ import {
   CheckoutForm,
   SolarLamp,
   ProductDetails,
+  FoldableKitchenRack
 } from "./pages";
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         <Route path="/" element={<Home />}> </Route>
         <Route path="/product/:id" element={<ProductDetails/>}/>
         <Route path="/list/:id" element={<CategoryDetails/>}/>
-        <Route path="/solarlamp" element={<SolarLamp/>} />
+        <Route path="/solarlamp" element={<SolarLamp />} />
+        <Route path="/foldablekitchenrack" element={<FoldableKitchenRack/>} />
         <Route path="/checkoutform" element={<CheckoutForm/>} />
       </Routes>
       <Sidebar />
