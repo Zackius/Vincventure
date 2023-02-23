@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
-  const { categories } = useContext(CategoryContext);
+
 
   const product = products.find((item) => {
     return item.id === parseInt(id)

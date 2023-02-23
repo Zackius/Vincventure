@@ -1,19 +1,9 @@
 import React  from 'react'
-import { Link, useParams } from 'react-router-dom'
-// import { CartContext } from '../contexts/CartContext'
-
-
-
-
-
+import { Link } from 'react-router-dom'
 
 const CategoryProduct = ({category }) => {
   const {id, name, image } = category
-  // const{addToCart} =useContext(CartContext)
-
-
-
-
+  
   return (
     <section>
      <div className='border-[#e4e4e4] rounded-xl shadow-2xl  mb-2 relative overflow-hidden group transition '>

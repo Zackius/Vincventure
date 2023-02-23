@@ -7,9 +7,10 @@ import { Solar } from "../img";
 const SolarLamp = () => {
   const form = useRef();
 
+
+
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_i8p94g6",
@@ -123,7 +124,7 @@ const SolarLamp = () => {
               Name <span className="text-red-600">*</span>
             </label>
             <input
-              className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
               name="user_name"
               placeholder="John Doe"
@@ -135,7 +136,7 @@ const SolarLamp = () => {
               Phone Number <span className="text-red-600">*</span>
             </label>
             <input
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="integer"
               name="phone_number"
               placeholder=" +254"
@@ -147,7 +148,7 @@ const SolarLamp = () => {
               Delivery Location <span className="text-red-600">*</span>{" "}
             </label>
             <textarea
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               name="delivery_location"
               placeholder="Nairobi, Kahawa west"
               required
@@ -178,14 +179,18 @@ const SolarLamp = () => {
           <div>
             <label className="text-xl font-bold">Optional Note </label>
             <textarea
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               type="text"
               name="optional_note"
             />
           </div>
           <div>
             <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input className="p-4" type="submit" value="Place Order" />
+              <input
+                className="p-4"
+                type="submit"
+                value="Place Order"
+              />
             </button>
           </div>
         </div>

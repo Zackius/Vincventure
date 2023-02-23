@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom"
 import List from "../components/List"
 import { ProductContext } from "../contexts/ProductContext";
-import { CategoryContext } from '../contexts/CategoryContext';
+// import { CategoryContext } from '../contexts/CategoryContext';
 // import { CartContext } from "../contexts/CartContext";
 
 const CategoryDetails = () => {
-  const { categories } = useContext(CategoryContext);
+  // const { categories } = useContext(CategoryContext);
   const { id } = useParams()
   // const { addToCart } = useContext(CartContext);
   const { products } = useContext(ProductContext);

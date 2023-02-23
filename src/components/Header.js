@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { BsBag } from "react-icons/bs";
-import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Logo } from "../img";
 
@@ -10,7 +9,7 @@ const Header = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount, total } = useContext(CartContext);
   const [isActive, setIsActive] = useState(false);
-  const [search, setSearch] = useState();
+
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -31,7 +30,6 @@ const Header = () => {
         </Link>
         <div className="invisible  md:visible">
           <input
-            onChange={(e) => setSearch(e.target.value)}
             className="w-[100px] text-sm h-8 p-3 md:w-[500px] lg:w-[700px] xlg:w-[1400px] "
             type="search"
             placeholder="Use Name or Category "
