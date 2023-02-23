@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { image1, image2, image3, image4, image5, image6, image7 } from "../img";
+import { Link } from "react-router-dom";
 
 const FoldableKitchenRack = () => {
   const form = useRef();
@@ -252,9 +253,12 @@ const FoldableKitchenRack = () => {
             />
           </div>
           <div>
+          <Link to="/deliverynote">
             <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input className="p-4" type="submit" value="Place Order" />
+                <input className="p-4" type="submit" value="Place Order" />
+           
             </button>
+            </Link>
           </div>
         </div>
       </form>

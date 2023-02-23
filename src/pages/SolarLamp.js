@@ -1,14 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 import { Solar2 } from "../img";
 import { Panel } from "../img";
 import { Solar } from "../img";
 
 const SolarLamp = () => {
-  const form = useRef();
+  const form = useRef(null);
+  const [name, setName] = useState("");
 
-
-
+  const handleSubmit = () => {
+    setName("");
+  };
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -119,6 +122,11 @@ const SolarLamp = () => {
         onSubmit={sendEmail}
       >
         <div className="mx-auto">
+          <div className="justify-center p-2 pl-16">
+            <p className="font-bold text-lg text-red-600">
+              Enter your Details below to place your Order
+            </p>
+          </div>
           <div className="flex flex-col">
             <label className="text-xl font-bold">
               Name <span className="text-red-600">*</span>
@@ -138,6 +146,7 @@ const SolarLamp = () => {
             <input
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="integer"
+
               name="phone_number"
               placeholder=" +254"
               required
@@ -150,6 +159,7 @@ const SolarLamp = () => {
             <textarea
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               name="delivery_location"
+          
               placeholder="Nairobi, Kahawa west"
               required
             />
@@ -181,17 +191,17 @@ const SolarLamp = () => {
             <textarea
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               type="text"
+             
               name="optional_note"
             />
           </div>
           <div>
+          <Link to="/deliverynote">
             <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input
-                className="p-4"
-                type="submit"
-                value="Place Order"
-              />
+                <input className="p-4" type="submit" value="Place Order" />
+           
             </button>
+            </Link>
           </div>
         </div>
       </form>

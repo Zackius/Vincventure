@@ -11,6 +11,7 @@ import {
   ProductDetails,
   FoldableKitchenRack
 } from "./pages";
+import DeliveryNote from "./pages/DeliveryNote";
 
 function App() {
   return (
@@ -23,10 +24,11 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails/>}/>
         <Route path="/list/:id" element={<CategoryDetails/>}/>
         <Route path="/solarlamp" element={<SolarLamp />} />
-        <Route path="/foldablekitchenrack" element={<FoldableKitchenRack/>} />
+        <Route path="/foldablekitchenrack" element={<FoldableKitchenRack />} />
+        <Route path="/deliverynote" element={<DeliveryNote/>} />
         <Route path="/checkoutform" element={<CheckoutForm/>} />
       </Routes>
-      <Sidebar />
+      <Sidebar/>
         <Footer />
     </div>
   );
