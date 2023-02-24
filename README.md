@@ -30,7 +30,9 @@ As a user of the application,you will be able to :
  ****
 * Clone to this repo : git clone https://github.com/Zackius/vinc-vent-frontend.git
 * Unzip the downloaded files in a folder of choice.
-* Open the index file from the zipped file with any browser.
+* Open the appliction with your preffered IDE.
+* Run npm install to install ract packages.
+* Run npm start 
  ****
  [Go Back to the top](#vinc-ventures)
 ### Live Link
