@@ -196,7 +196,7 @@ navigate('/deliverynote')
           </div>
           <div className="flex flex-col">
             <label className="text-xl font-bold">
-              Name <span className="text-red-600">*</span>
+              Full Names <span className="text-red-600">*</span>
             </label>
             <input
               className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
