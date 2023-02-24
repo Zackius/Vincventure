@@ -196,12 +196,11 @@ const SolarLamp = () => {
             />
           </div>
           <div>
-          <Link to="/deliverynote">
-            <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
+          <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
                 <input className="p-4" type="submit" value="Place Order" />
-           
+                <Link to="/deliverynote"></Link>
             </button>
-            </Link>
+            
           </div>
         </div>
       </form>
