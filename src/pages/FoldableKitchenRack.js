@@ -8,27 +8,29 @@ const FoldableKitchenRack = () => {
   const navigate = useNavigate()
 
   const handleSubmit = e=> {
-    e.preventDefault();
-    navigate('/deliverynote');
+navigate('/deliverynote')
+    
   };
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_j3qd6md",
         "template_qqmg52e",
         form.current,
         "6gxyHKMnQ4EBbedJQ"
-      )
+    )
       .then(
         (result) => {
-          console.log(result.text);
+          if (result.text) {
+  handleSubmit()
+}
         },
         (error) => {
           console.log(error.text);
         }
-      );
+    );
+  
   };
 
   return (
@@ -184,7 +186,7 @@ const FoldableKitchenRack = () => {
       <form
         className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
         ref={form}
-        onSubmit={sendEmail}
+        onSubmit={sendEmail} 
       >
         <div className="mx-auto">
           <div className="justify-center p-2 pl-16">
@@ -259,9 +261,9 @@ const FoldableKitchenRack = () => {
           </div>
           <div>
             <button  className=" content-center  bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input className="p-4" type="submit" value="Place Order" />
-              {handleSubmit}
+              <input className="p-4" type="submit"  value="Place Order" />
             </button>
+
           </div>
         </div>
       </form>
