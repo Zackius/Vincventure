@@ -88,16 +88,14 @@ const SolarLamp = () => {
           PRICING & DELIVERY
         </h2>
         <div className="grid grid-cols-2 gap-5 ">
-          <div className="border-2 border-yellow-400 mx-auto md:w-[400px] md:h-[200px] md:p-20 ">
-            <h1 className="text-center text-sm p-3 font-bold  line-through place-content-center md:text-2xl  ">
-              Normal Price KES 4500
+          <div className="border-2 border-yellow-400 mx-auto md:w-[400px] md:h-[200px] md:p-16 ">
+            <h1 className="text-center text-sm p-3 font-bold   place-content-center md:text-2xl  ">
+              200W @ KES 2999
             </h1>
           </div>
-          <div className="border-2 border-red-600 mx-auto md:w-[400px] md:h-[200px] md:p-12">
+          <div className="border-2 border-red-600 mx-auto md:w-[400px] md:h-[200px] md:p-16">
             <p className="text-center text-sm font-semibold  md:text-2xl  md:font-bold ">
-              OFFER PRICE KES 2,999
-              <br />
-              OFFER PRICE 2pcs KES 5500
+              300W @ KES 3500
             </p>
           </div>
         </div>
@@ -146,7 +144,6 @@ const SolarLamp = () => {
             <input
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="integer"
-
               name="phone_number"
               placeholder=" +254"
               required
@@ -159,7 +156,6 @@ const SolarLamp = () => {
             <textarea
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               name="delivery_location"
-          
               placeholder="Nairobi, Kahawa west"
               required
             />
@@ -172,18 +168,18 @@ const SolarLamp = () => {
             <div className="flex flex-rows gap-4">
               <input
                 type="checkbox"
-                name="1piece_solar_lamp"
-                value="1 PC AT KES. 2,999"
+                name="200W_lamp@2999"
+                value="200W AT KES. 2,999"
               />
-              <p>1 PC AT KES. 2,999</p>
+              <p>200W AT KES. 2,999</p>
             </div>
             <div className="flex flex-rows gap-4">
-              <input
+            <input
                 type="checkbox"
-                name="2pieces_solar_lamp"
-                value="2PC AT KES. 5,500"
+                name="300W_lamp@3500"
+                value="300W AT KES. 3,500"
               />
-              <p>2PC AT KES. 5,500</p>
+              <p>300W AT KES. 3,500</p>
             </div>
           </div>
           <div>
@@ -191,16 +187,14 @@ const SolarLamp = () => {
             <textarea
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               type="text"
-             
               name="optional_note"
             />
           </div>
           <div>
-          <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
-                <input className="p-4" type="submit" value="Place Order" />
-                <Link to="/deliverynote"></Link>
+            <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
+              <input className="p-4" type="submit" value="Place Order" />
+              <Link to="/deliverynote"></Link>
             </button>
-            
           </div>
         </div>
       </form>

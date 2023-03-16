@@ -35,7 +35,6 @@ const Header = () => {
             placeholder="Use Name or Category "
           />
         </div>
-
         <div
           onClick={() => setIsOpen(!isOpen)}
           className="cursor-pointer flex relative"
