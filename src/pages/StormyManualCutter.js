@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Formik, Field, Form} from "formik";
-import emailjs from "@emailjs/browser";
+import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import {
   stormy1,
@@ -8,12 +8,19 @@ import {
   stormy2,
   stormy3,
   stormy4,
-  stormy5,
   stormy6,
   stormy7,
   stormy8,
   stormy9,
 } from "../img";
+
+const validate = Yup.object({
+  username: Yup.string().required("Your Username is required"),
+  phonenumber: Yup.string().required("Phone number required"),
+  deliverylocation: Yup.string().required("Delivery location required")
+
+
+})
 
 const StormyManualCutter = () => {
  
@@ -76,14 +83,26 @@ const StormyManualCutter = () => {
             <span className="font-bold">
               PAYMENTS For products are Done After Delivery but NOTE
             </span>
-            : In some case you may be required pay Delivery fee before the
-            Product is Dispatched. At G4S
+            : In some cases you may be required to  pay a  Delivery fee before the
+            Product is Dispatched.
           </p>
-          <h2> FREE DELIVERY </h2>
+          <p className="p-6 text-lg font-bold">We use  G4S Delivery Services to ensure that your order is quickly fast delivered and safe. </p>
+          <h2 className="font-semibold"> FREE DELIVERY </h2>
           <p className="font-bold text-red-600">Delivery fee Ranges from 200-500 Depending on your Location</p>
         </div>
       </section>
-      <Formik>
+      <Formik
+        initialValues={{
+          username:"",
+          checked: [],
+          phonenumber: "",
+          deliverylocation: "",
+          optionalnote: ""
+        }}
+        validationSchema={validate}
+        onSubmit={(values )=>{
+        console.log(values)
+      }}>
       <Form 
         className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl"
       >
@@ -100,7 +119,7 @@ const StormyManualCutter = () => {
             <Field
               className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
-              name="user_name"
+              name="username"
               placeholder="John Doe"
               required
             />
@@ -112,7 +131,7 @@ const StormyManualCutter = () => {
             <Field
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="integer"
-              name="phone_number"
+              name="phonenumber"
               placeholder=" +254"
               required
             />
@@ -123,7 +142,7 @@ const StormyManualCutter = () => {
             </label>
             <textarea
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-              name="delivery_location"
+              name="deliverylocation"
               placeholder="Nairobi, Kahawa west"
               required
             />
@@ -132,8 +151,8 @@ const StormyManualCutter = () => {
             <label className="text-xl font-bold">
               Select Your Offer <span className="text-red-600">*</span>{" "}
             </label>
-
-            <label className="flex gap-4 p-6">
+              <div role="group" aria-labelledby="checkbox-group">
+              <label className="flex gap-4 p-6">
               <Field
                 type="checkbox"
                 name="checked"
@@ -141,13 +160,14 @@ const StormyManualCutter = () => {
               />
               <p className="font-bold text-red-700">STORMY VAGETABLE CUTTER AT KES. 1,999</p>
             </label>
+</div>
           </div>
           <div>
             <label className="text-xl font-bold">Optional Note </label>
             <textarea
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
               type="text"
-              name="optional_note"
+              name="optionalnote"
             />
           </div>
           <div>
