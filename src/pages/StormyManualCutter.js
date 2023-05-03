@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
+import { Formik, Field, Form} from "formik";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
 import {
   stormy1,
   stormy10,
-  stormy11,
-  stormy12,
   stormy2,
   stormy3,
   stormy4,
@@ -17,31 +16,7 @@ import {
 } from "../img";
 
 const StormyManualCutter = () => {
-  const form = useRef(null);
-  const [name, setName] = useState("");
-
-  const handleSubmit = () => {
-    setName("");
-  };
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_i8p94g6",
-        "template_xnrtncd",
-        form.current,
-        "6gxyHKMnQ4EBbedJQ"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
-
+ 
   return (
     <section className="py-32 content-center bg-slate-300">
       <section>
@@ -104,15 +79,13 @@ const StormyManualCutter = () => {
             : In some case you may be required pay Delivery fee before the
             Product is Dispatched. At G4S
           </p>
-          <h2>DELIVERY FREE</h2>
-          <p>Delivery fee Ranges from 200-500 Depending on your Location</p>
+          <h2> FREE DELIVERY </h2>
+          <p className="font-bold text-red-600">Delivery fee Ranges from 200-500 Depending on your Location</p>
         </div>
       </section>
-
-      <form
-        className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
-        ref={form}
-        onSubmit={sendEmail}
+      <Formik>
+      <Form 
+        className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl"
       >
         <div className="mx-auto">
           <div className="justify-center p-2 pl-16">
@@ -124,7 +97,7 @@ const StormyManualCutter = () => {
             <label className="text-xl font-bold">
               Name <span className="text-red-600">*</span>
             </label>
-            <input
+            <Field
               className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
               name="user_name"
@@ -136,7 +109,7 @@ const StormyManualCutter = () => {
             <label className="text-xl font-bold">
               Phone Number <span className="text-red-600">*</span>
             </label>
-            <input
+            <Field
               className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="integer"
               name="phone_number"
@@ -160,14 +133,14 @@ const StormyManualCutter = () => {
               Select Your Offer <span className="text-red-600">*</span>{" "}
             </label>
 
-            <div className="flex flex-rows gap-4">
-              <input
+            <label className="flex gap-4 p-6">
+              <Field
                 type="checkbox"
-                name="200W_lamp@2999"
+                name="checked"
                 value="STORMY VAGETABLE CUTTER AT KES. 1,999"
               />
-              <p>STORMY VAGETABLE CUTTER AT KES. 1,999</p>
-            </div>
+              <p className="font-bold text-red-700">STORMY VAGETABLE CUTTER AT KES. 1,999</p>
+            </label>
           </div>
           <div>
             <label className="text-xl font-bold">Optional Note </label>
@@ -178,13 +151,15 @@ const StormyManualCutter = () => {
             />
           </div>
           <div>
-            <button className=" content-center bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input className="p-4" type="submit" value="Place Order" />
+              <button type="submit"  className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600">
+                Place Order
               <Link to="/deliverynote"></Link>
             </button>
           </div>
         </div>
-      </form>
+      </Form>
+</Formik>
+     
     </section>
   );
 };
