@@ -86,7 +86,7 @@ const StormyManualCutter = () => {
             Product is Dispatched.
           </p>
           <p className="p-6 text-lg font-bold">We use  G4S Delivery Services to ensure that your order is quickly fast delivered and safe. </p>
-          <h2 className="font-semibold"> FREE DELIVERY </h2>
+          <h2 className="font-semibold"> Free Delivery within Nairobi CBD</h2>
           <p className="font-bold text-red-600">Delivery fee Ranges from 200-500 Depending on your Location</p>
         </div>
       </section>
