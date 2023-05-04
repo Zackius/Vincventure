@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import StarterHeader from "./components/StarterHeader";
+import ToiletRack from "./pages/ToiletRack/ToiletRack"
 import {
   Home,
   CategoryDetails,
@@ -10,6 +11,7 @@ import {
   SolarLamp,
   ProductDetails,
   FoldableKitchenRack
+
 } from "./pages";
 import DeliveryNote from "./pages/DeliveryNote";
 import StormyManualCutter from "./pages/StormyManualCutter";
@@ -27,6 +29,7 @@ function App() {
         <Route path="/solarlamp" element={<SolarLamp />} />
         <Route path="/stormymanualcutter" element={<StormyManualCutter/>} />
         <Route path="/foldablekitchenrack" element={<FoldableKitchenRack />} />
+        <Route path="/toiletrack" element={<ToiletRack />} />
         <Route path="/deliverynote" element={<DeliveryNote/>} />
         <Route path="/checkoutform" element={<CheckoutForm/>} />
       </Routes>

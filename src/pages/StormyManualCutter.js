@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Field, Form} from "formik";
+import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import {
@@ -18,8 +18,6 @@ const validate = Yup.object({
   username: Yup.string().required("Your Username is required"),
   phonenumber: Yup.string().required("Phone number required"),
   deliverylocation: Yup.string().required("Delivery location required")
-
-
 })
 
 const StormyManualCutter = () => {
@@ -34,6 +32,7 @@ const StormyManualCutter = () => {
           <p className="text-xl md:text-2xl p-6 font-semibold">
             Reduce your preparation and cooking time with a stormy manual vegatable cutter.  <br/>it is easy to clean, durable, has multiple blades for your needs, corrosion-ressistance, and rust proof. 
           </p>
+          
           <div className="hero container max-w-screen-lg mx-auto   pb-10">
             <img className="mx-auto " src={stormy1} alt="/" />
             <p className="text-xl p-6  font-semibold">
@@ -99,7 +98,7 @@ const StormyManualCutter = () => {
           deliverylocation: "",
           optionalnote: ""
         }}
-        validationSchema={validate}
+   
         onSubmit={(values )=>{
         console.log(values)
       }}>
