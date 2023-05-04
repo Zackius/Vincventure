@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { rack, rack1, rack2, toilet1, desgin } from "./Images";
 
-
 const validate = Yup.object({
   username: Yup.string().required("Your Username is required"),
   phonenumber: Yup.string().required("Phone number required"),
@@ -101,7 +100,7 @@ const StormyManualCutter = () => {
             We use G4S Delivery Services to ensure that your order is quickly
             fast delivered and safe.{" "}
           </p>
-          <h2 className="font-semibold"> FREE DELIVERY </h2>
+          <h2 className="font-semibold"> Free Delivery within Nairobi </h2>
           <p className="font-bold text-red-600">
             Delivery fee Ranges from 200-500 Depending on your Location
           </p>

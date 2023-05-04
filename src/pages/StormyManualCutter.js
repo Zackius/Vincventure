@@ -71,7 +71,7 @@ const StormyManualCutter = () => {
         <div className="grid grid-cols-1 gap-5 ">
           <div className="border-2 border-yellow-400 mx-auto md:w-[400px] md:h-[200px] md:p-16 ">
             <h1 className="text-center text-sm p-3 font-bold   place-content-center md:text-2xl  ">
-              KES 1999
+              KES 2,199
             </h1>
           </div>
         </div>
@@ -155,9 +155,9 @@ const StormyManualCutter = () => {
               <Field
                 type="checkbox"
                 name="checked"
-                value="STORMY VAGETABLE CUTTER AT KES. 1,999"
+                value="STORMY VAGETABLE CUTTER AT KES. 2,199"
               />
-              <p className="font-bold text-red-700">STORMY VAGETABLE CUTTER AT KES. 1,999</p>
+              <p className="font-bold text-red-700">STORMY VAGETABLE CUTTER AT KES. 2,199</p>
             </label>
 </div>
           </div>
