@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { image1, image2, image3, image4, image5, image6, image7 } from "../img";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const FoldableKitchenRack = () => {
   const form = useRef();

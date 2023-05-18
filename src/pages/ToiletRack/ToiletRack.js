@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { rack, rack1, rack2, toilet1, desgin } from "./Images";
 
@@ -116,6 +117,11 @@ const StormyManualCutter = () => {
         }}
         onSubmit={(values) => {
           console.log(values);
+          axios
+            .post("http://localhost:5000/send_email", values)
+            .catch((error) => {
+              console.log(error);
+            });
         }}
       >
         <Form className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl">
