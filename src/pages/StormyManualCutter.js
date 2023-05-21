@@ -13,6 +13,7 @@ import {
   stormy8,
   stormy9,
 } from "../img";
+import axios from "axios";
 
 const validate = Yup.object({
   username: Yup.string().required("Your Username is required"),
@@ -90,94 +91,108 @@ const StormyManualCutter = () => {
           <p className="font-bold text-red-600">Delivery fee Ranges from 200-500 Depending on your Location</p>
         </div>
       </section>
-      <Formik
+ <Formik
         initialValues={{
-          username:"",
+          username: "",
           checked: [],
           phonenumber: "",
-          deliverylocation: "",
-          optionalnote: ""
+          delivery: "",
+          note: "",
         }}
-   
-        onSubmit={(values )=>{
-        console.log(values)
-      }}>
-      <Form 
-        className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl"
+        onSubmit={({ username, checked, phonenumber, delivery, note }) => {
+          console.log(username, checked, phonenumber, delivery, note);
+          axios
+            .post("http://localhost:5000/api/sendemail", {
+              username: username,
+              checked: checked,
+              phonenumber: phonenumber,
+              delivery: delivery,
+              note: note,
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }}
       >
-        <div className="mx-auto">
-          <div className="justify-center p-2 pl-16">
-            <p className="font-bold text-lg text-red-600">
-              Enter your Details below to place your Order
-            </p>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-xl font-bold">
-              Name <span className="text-red-600">*</span>
-            </label>
-            <Field
-              className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="text"
-              name="username"
-              placeholder="John Doe"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xl font-bold">
-              Phone Number <span className="text-red-600">*</span>
-            </label>
-            <Field
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="integer"
-              name="phonenumber"
-              placeholder=" +254"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xl font-bold">
-              Delivery Location <span className="text-red-600">*</span>{" "}
-            </label>
-            <textarea
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-              name="deliverylocation"
-              placeholder="Nairobi, Kahawa west"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xl font-bold">
-              Select Your Offer <span className="text-red-600">*</span>{" "}
-            </label>
-              <div role="group" aria-labelledby="checkbox-group">
-              <label className="flex gap-4 p-6">
+        <Form className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl">
+          <div className="mx-auto">
+            <div className="justify-center p-2 pl-16">
+              <p className="font-bold text-lg text-red-600">
+                Enter your Details below to place your Order
+              </p>
+            </div>
+            <div className="flex flex-col">
+              <label className="text-xl font-bold">
+                Name <span className="text-red-600">*</span>
+              </label>
               <Field
-                type="checkbox"
-                name="checked"
-                value="STORMY VAGETABLE CUTTER AT KES. 2,199"
+                className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                type="text"
+                name="username"
+                placeholder="John Doe"
+                required
               />
-              <p className="font-bold text-red-700">STORMY VAGETABLE CUTTER AT KES. 2,199</p>
-            </label>
-</div>
-          </div>
-          <div>
-            <label className="text-xl font-bold">Optional Note </label>
-            <textarea
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-              type="text"
-              name="optionalnote"
-            />
-          </div>
-          <div>
-              <button type="submit"  className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600">
+            </div>
+            <div>
+              <label className="text-xl font-bold">
+                Phone Number <span className="text-red-600">*</span>
+              </label>
+              <Field
+                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                type="integer"
+                name="phonenumber"
+                placeholder=" +254"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-xl font-bold">
+                Delivery Location <span className="text-red-600">*</span>{" "}
+              </label>
+              <Field
+                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                name="delivery"
+                placeholder="Nairobi, Kahawa west"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-xl font-bold">
+                Select Your Offer <span className="text-red-600">*</span>{" "}
+              </label>
+              <div role="group" aria-labelledby="checkbox-group">
+                <label className="flex gap-4 p-6">
+                  <Field
+                    type="checkbox"
+                    name="checked"
+                    value="STORMY VAGETABLE CUTTER AT KES. 2,199"
+                  />
+                  <p className="font-bold text-red-700">
+                STORMY VAGETABLE CUTTER AT KES. 2,199
+                  </p>
+                </label>
+              </div>
+            </div>
+            <div>
+              <label className="text-xl font-bold">Optional Note </label>
+              <Field
+                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                type="text"
+                name="note"
+              />
+            </div>
+            <div>
+              <button
+                type="submit"
+                className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
+              >
                 Place Order
-              <Link to="/deliverynote"></Link>
-            </button>
+                <Link to="/deliverynote"></Link>
+              </button>
+            </div>
           </div>
-        </div>
-      </Form>
-</Formik>
+        </Form>
+      </Formik>
      
     </section>
   );

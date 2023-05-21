@@ -8,7 +8,7 @@ import { rack, rack1, rack2, toilet1, desgin } from "./Images";
 const validate = Yup.object({
   username: Yup.string().required("Your Username is required"),
   phonenumber: Yup.string().required("Phone number required"),
-  deliverylocation: Yup.string().required("Delivery location required"),
+  delivery: Yup.string().required("Delivery location required"),
 });
 
 const StormyManualCutter = () => {
@@ -112,13 +112,20 @@ const StormyManualCutter = () => {
           username: "",
           checked: [],
           phonenumber: "",
-          deliverylocation: "",
-          optionalnote: "",
+          delivery: "",
+          note: "",
         }}
-        onSubmit={(values) => {
-          console.log(values);
+       
+        onSubmit={({ username, checked, phonenumber, delivery, note }) => {
+          console.log(username, checked, phonenumber, delivery, note);
           axios
-            .post("http://localhost:5000/send_email", values)
+            .post("http://localhost:5000/api/sendemail", {
+              username: username,
+              checked: checked,
+              phonenumber: phonenumber,
+              delivery: delivery,
+              note: note,
+            })
             .catch((error) => {
               console.log(error);
             });
@@ -159,9 +166,9 @@ const StormyManualCutter = () => {
               <label className="text-xl font-bold">
                 Delivery Location <span className="text-red-600">*</span>{" "}
               </label>
-              <textarea
+              <Field
                 className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                name="deliverylocation"
+                name="delivery"
                 placeholder="Nairobi, Kahawa west"
                 required
               />
@@ -185,10 +192,10 @@ const StormyManualCutter = () => {
             </div>
             <div>
               <label className="text-xl font-bold">Optional Note </label>
-              <textarea
+              <Field
                 className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
                 type="text"
-                name="optionalnote"
+                name="note"
               />
             </div>
             <div>
