@@ -8,7 +8,7 @@ const CategoryProvider = ({ children }) => {
     
     useEffect(() => {
         const fetchCategories = async () => {
-            const resp = await fetch('https://vinc-venture.herokuapp.com/categories');
+            const resp = await fetch('http://127.0.0.1:3000/categories');
             const categoryData = await resp.json()
             setCategories(categoryData)
         }

@@ -119,7 +119,7 @@ const StormyManualCutter = () => {
         onSubmit={({ username, checked, phonenumber, delivery, note }) => {
           console.log(username, checked, phonenumber, delivery, note);
           axios
-            .post("http://localhost:5000/api/sendemail", {
+            .post("https://node-email-ug9d.onrender.com/api/sendemail", {
               username: username,
               checked: checked,
               phonenumber: phonenumber,

@@ -40,30 +40,30 @@ Loading ......
 })
 
   return (
-    <section className=" pt-32 bg-slate-100">
-   <div className=" grid md:grid-cols-1">
-        <div className="flex flex-col  float-right  bg-white border shadow-md  lg:flex-row items-center">
+    <section className=" pt-32 bg-slate-100 ">
+   <div className=" grid md:grid-cols-2">
+        <div className="flex flex-col gap-4   lg:flex-row items-center">
           <div className="flex flex-1 border-r -4 justify-center items-center ">
-            <img className="max-w-[400px]" src={image} alt="" />
+            <img className="md:max-w-[600px] max-w-[300px]" src={image} alt="" />
+          </div>
           </div>
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-[26px] font-bold mb-2 max-w-[45 0px] mx-auto">
-          
+            <h1 className="text-[26px] font-bold text-center underline mb-2 max-w-[45 0px] mx-auto">
               {name}
-            </h1>
-            <p className="text-md capitalize">{name}</p>
-            <div className="text-xl text-blue-400  font-medium  mb-6">
+          </h1>
+          <h3 class="text-lg font-medium italic"> Product Description</h3>
+          <p className="text-md mb-8 px-4">{description}</p>
+          <div className="text-xl text-blue-400  font-bold  mb-6">
+          <h3 class="text-lg font-medium italic"> Product Price:</h3>
               KES  {price}
             </div>
-            <div className="mb-8 px-4">{description}</div>
             <div className="flex gap-5 container justify-center pb-3 ">
               <div className="justify-center">
               <Button onClick={() => addToCart(product, product.id)}
                 variant="contained">Add To Cart</Button>
               </div>
             </div>
-            
-          </div>
+         
         </div>
       </div>
       <section>

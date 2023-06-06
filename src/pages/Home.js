@@ -54,7 +54,7 @@ function Home() {
           <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4   lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
-                return item.category_id === parseInt(5);
+                return item.category_id === parseInt(2);
               })
               .slice(0, 8)
               .map((product) => {
@@ -69,7 +69,7 @@ function Home() {
           <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
-                return item.category_id === parseInt(11);
+                return item.category_id === parseInt(5);
               }).slice(0, 8).map((product) => {
                 return <Product  product={product} key={product.id} />;
               })}
