@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -18,11 +18,12 @@ import axios from "axios";
 const validate = Yup.object({
   username: Yup.string().required("Your Username is required"),
   phonenumber: Yup.string().required("Phone number required"),
-  deliverylocation: Yup.string().required("Delivery location required")
-})
+  deliverylocation: Yup.string().required("Delivery location required"),
+});
 
 const StormyManualCutter = () => {
- 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   return (
     <section className="py-32 content-center bg-slate-300">
       <section>
@@ -31,9 +32,12 @@ const StormyManualCutter = () => {
             Stormy Manual Vagetable Cutter
           </h2>
           <p className="text-xl md:text-2xl p-6 font-semibold">
-            Reduce your preparation and cooking time with a stormy manual vegatable cutter.  <br/>it is easy to clean, durable, has multiple blades for your needs, corrosion-ressistance, and rust proof. 
+            Reduce your preparation and cooking time with a stormy manual
+            vegatable cutter. <br />
+            it is easy to clean, durable, has multiple blades for your needs,
+            corrosion-ressistance, and rust proof.
           </p>
-          
+
           <div className="hero container max-w-screen-lg mx-auto   pb-10">
             <img className="mx-auto " src={stormy1} alt="/" />
             <p className="text-xl p-6  font-semibold">
@@ -83,15 +87,20 @@ const StormyManualCutter = () => {
             <span className="font-bold">
               PAYMENTS For products are Done After Delivery but NOTE
             </span>
-            : In some cases you may be required to  pay a  Delivery fee before the
+            : In some cases you may be required to pay a Delivery fee before the
             Product is Dispatched.
           </p>
-          <p className="p-6 text-lg font-bold">We use  G4S Delivery Services to ensure that your order is quickly fast delivered and safe. </p>
+          <p className="p-6 text-lg font-bold">
+            We use G4S Delivery Services to ensure that your order is quickly
+            fast delivered and safe.{" "}
+          </p>
           <h2 className="font-semibold"> Free Delivery within Nairobi CBD</h2>
-          <p className="font-bold text-red-600">Delivery fee Ranges from 200-500 Depending on your Location</p>
+          <p className="font-bold text-red-600">
+            Delivery fee Ranges from 200-500 Depending on your Location
+          </p>
         </div>
       </section>
- <Formik
+      <Formik
         initialValues={{
           username: "",
           checked: [],
@@ -101,6 +110,7 @@ const StormyManualCutter = () => {
         }}
         onSubmit={({ username, checked, phonenumber, delivery, note }) => {
           console.log(username, checked, phonenumber, delivery, note);
+          setIsSubmitting(true);
           axios
             .post("https://node-email-ug9d.onrender.com/api/sendemail", {
               username: username,
@@ -112,88 +122,94 @@ const StormyManualCutter = () => {
             .catch((error) => {
               console.log(error);
             });
+          setTimeout(() => {
+            setIsSubmitting(false);
+          }, 1000);
         }}
+        loadingText={"Submitting Order"}
       >
-        <Form className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl">
-          <div className="mx-auto">
-            <div className="justify-center p-2 pl-16">
-              <p className="font-bold text-lg text-red-600">
-                Enter your Details below to place your Order
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-xl font-bold">
-                Name <span className="text-red-600">*</span>
-              </label>
-              <Field
-                className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                type="text"
-                name="username"
-                placeholder="John Doe"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Phone Number <span className="text-red-600">*</span>
-              </label>
-              <Field
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                type="integer"
-                name="phonenumber"
-                placeholder=" +254"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Delivery Location <span className="text-red-600">*</span>{" "}
-              </label>
-              <Field
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                name="delivery"
-                placeholder="Nairobi, Kahawa west"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Select Your Offer <span className="text-red-600">*</span>{" "}
-              </label>
-              <div role="group" aria-labelledby="checkbox-group">
-                <label className="flex gap-4 p-6">
-                  <Field
-                    type="checkbox"
-                    name="checked"
-                    value="STORMY VAGETABLE CUTTER AT KES. 2,199"
-                  />
-                  <p className="font-bold text-red-700">
-                STORMY VAGETABLE CUTTER AT KES. 2,199
-                  </p>
+        {({ isSubmitting }) => (
+          <Form className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl">
+            <div className="mx-auto">
+              <div className="justify-center p-2 pl-16">
+                <p className="font-bold text-lg text-red-600">
+                  Enter your Details below to place your Order
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-xl font-bold">
+                  Name <span className="text-red-600">*</span>
                 </label>
+                <Field
+                  className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="text"
+                  name="username"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Phone Number <span className="text-red-600">*</span>
+                </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="integer"
+                  name="phonenumber"
+                  placeholder=" +254"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Delivery Location <span className="text-red-600">*</span>{" "}
+                </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  name="delivery"
+                  placeholder="Nairobi, Kahawa west"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Select Your Offer <span className="text-red-600">*</span>{" "}
+                </label>
+                <div role="group" aria-labelledby="checkbox-group">
+                  <label className="flex gap-4 p-6">
+                    <Field
+                      type="checkbox"
+                      name="checked"
+                      value="STORMY VAGETABLE CUTTER AT KES. 2,199"
+                    />
+                    <p className="font-bold text-red-700">
+                      STORMY VAGETABLE CUTTER AT KES. 2,199
+                    </p>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label className="text-xl font-bold">Optional Note </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  type="text"
+                  name="note"
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
+                >
+                  Place Order
+                  <Link to="/deliverynote"></Link>
+                </button>
               </div>
             </div>
-            <div>
-              <label className="text-xl font-bold">Optional Note </label>
-              <Field
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                type="text"
-                name="note"
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
-              >
-                Place Order
-                <Link to="/deliverynote"></Link>
-              </button>
-            </div>
-          </div>
-        </Form>
+          </Form>
+        )}
       </Formik>
-     
     </section>
   );
 };

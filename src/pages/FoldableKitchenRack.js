@@ -1,16 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { image1, image2, image3, image4, image5, image6, image7 } from "../img";
 import { useNavigate } from "react-router-dom";
 
-
 const FoldableKitchenRack = () => {
   const form = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [loading, setIsLoading] = useState(false);
 
-  const handleSubmit = e=> {
-navigate('/deliverynote')
-    
+  const handleSubmit = (e) => {
+    navigate("/deliverynote");
   };
   const sendEmail = (e) => {
     e.preventDefault();
@@ -20,18 +19,17 @@ navigate('/deliverynote')
         "template_qqmg52e",
         form.current,
         "6gxyHKMnQ4EBbedJQ"
-    )
+      )
       .then(
         (result) => {
           if (result.text) {
-  handleSubmit()
-}
+            handleSubmit();
+          }
         },
         (error) => {
           console.log(error.text);
         }
-    );
-  
+      );
   };
 
   return (
@@ -187,7 +185,8 @@ navigate('/deliverynote')
       <form
         className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
         ref={form}
-        onSubmit={sendEmail} 
+        onSubmit={sendEmail}
+        loadingText={"Sending Order"}
       >
         <div className="mx-auto">
           <div className="justify-center p-2 pl-16">
@@ -261,10 +260,9 @@ navigate('/deliverynote')
             />
           </div>
           <div>
-            <button  className=" content-center  bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input className="p-4" type="submit"  value="Place Order" />
+            <button className=" content-center  bg-yellow-400 rounded-xl hover:bg-yellow-600">
+              <input className="p-4" type="submit" value="Place Order" />
             </button>
-
           </div>
         </div>
       </form>
