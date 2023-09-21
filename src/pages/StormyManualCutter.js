@@ -202,7 +202,7 @@ const StormyManualCutter = () => {
                   disabled={isSubmitting}
                   className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
                 >
-                  Place Order
+                  {isSubmitting ? "Submitting ..." : "Submit"}
                   <Link to="/deliverynote"></Link>
                 </button>
               </div>
