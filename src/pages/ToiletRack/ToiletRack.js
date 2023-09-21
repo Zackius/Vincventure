@@ -115,7 +115,6 @@ const StormyManualCutter = () => {
           delivery: "",
           note: "",
         }}
-       
         onSubmit={({ username, checked, phonenumber, delivery, note }) => {
           console.log(username, checked, phonenumber, delivery, note);
           axios
@@ -131,84 +130,87 @@ const StormyManualCutter = () => {
             });
         }}
       >
-        <Form className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl">
-          <div className="mx-auto">
-            <div className="justify-center p-2 pl-16">
-              <p className="font-bold text-lg text-red-600">
-                Enter your Details below to place your Order
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-xl font-bold">
-                Name <span className="text-red-600">*</span>
-              </label>
-              <Field
-                className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                type="text"
-                name="username"
-                placeholder="John Doe"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Phone Number <span className="text-red-600">*</span>
-              </label>
-              <Field
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                type="integer"
-                name="phonenumber"
-                placeholder=" +254"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Delivery Location <span className="text-red-600">*</span>{" "}
-              </label>
-              <Field
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                name="delivery"
-                placeholder="Nairobi, Kahawa west"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Select Your Offer <span className="text-red-600">*</span>{" "}
-              </label>
-              <div role="group" aria-labelledby="checkbox-group">
-                <label className="flex gap-4 p-6">
-                  <Field
-                    type="checkbox"
-                    name="checked"
-                    value="Toilet Rack AT KES 3,499"
-                  />
-                  <p className="font-bold text-red-700">
-                    Toilet Rack AT KES 3,499
-                  </p>
+        {({ isSubmitting }) => (
+          <Form className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  bg-white border shadow-xl rounded-xl">
+            <div className="mx-auto">
+              <div className="justify-center p-2 pl-16">
+                <p className="font-bold text-lg text-red-600">
+                  Enter your Details below to place your Order
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-xl font-bold">
+                  Name <span className="text-red-600">*</span>
                 </label>
+                <Field
+                  className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="text"
+                  name="username"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Phone Number <span className="text-red-600">*</span>
+                </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="integer"
+                  name="phonenumber"
+                  placeholder=" +254"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Delivery Location <span className="text-red-600">*</span>{" "}
+                </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  name="delivery"
+                  placeholder="Nairobi, Kahawa west"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Select Your Offer <span className="text-red-600">*</span>{" "}
+                </label>
+                <div role="group" aria-labelledby="checkbox-group">
+                  <label className="flex gap-4 p-6">
+                    <Field
+                      type="checkbox"
+                      name="checked"
+                      value="Toilet Rack AT KES 3,499"
+                    />
+                    <p className="font-bold text-red-700">
+                      Toilet Rack AT KES 3,499
+                    </p>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label className="text-xl font-bold">Optional Note </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  type="text"
+                  name="note"
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
+                >
+                  {isSubmitting ? "Submitting" : "Submit"}
+                  <Link to="/deliverynote"></Link>
+                </button>
               </div>
             </div>
-            <div>
-              <label className="text-xl font-bold">Optional Note </label>
-              <Field
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                type="text"
-                name="note"
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
-              >
-                Place Order
-                <Link to="/deliverynote"></Link>
-              </button>
-            </div>
-          </div>
-        </Form>
+          </Form>
+        )}
       </Formik>
     </section>
   );
