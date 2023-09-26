@@ -1,35 +1,36 @@
 import React, { useRef, useState } from "react";
 import { Formik, Field, Form } from "formik";
 import emailjs from "@emailjs/browser";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Solar2 } from "../img";
 import { Panel } from "../img";
 import { Solar } from "../img";
 
 const SolarLamp = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const form = useRef(null);
-  const [name, setName] = useState("");
 
-  const handleSubmit = () => {
-    setName("");
-  };
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
+    setLoading(true);
+    try {
+      const resp = await emailjs.sendForm(
         "service_i8p94g6",
         "template_xnrtncd",
         form.current,
         "6gxyHKMnQ4EBbedJQ"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
       );
+      if (resp.status === 200) {
+        console.log("Success");
+        navigate("/deliverynote");
+        // Handle success.
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      // Handle the error
+    }
+    setLoading(false);
   };
 
   return (
@@ -116,107 +117,104 @@ const SolarLamp = () => {
       </section>
       <Formik
         initialValues={{
-          username: '',
+          username: "",
           checked: [],
-          phonenumber: "", 
+          phonenumber: "",
           delivery: "",
-          note: ""
+          note: "",
         }}
-      onSubmit={sendEmail}
+        onSubmit={sendEmail}
       >
         {({ isSubmitting }) => (
           <Form
-          className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
-          ref={form}
-          onSubmit={sendEmail}
-        >
-          <div className="mx-auto">
-            <div className="justify-center p-2 pl-16">
-              <p className="font-bold text-lg text-red-600">
-                Enter your Details below to place your Order
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-xl font-bold">
-                Name <span className="text-red-600">*</span>
-              </label>
-              <input
-                className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                type="text"
-                name="user_name"
-                placeholder="John Doe"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Phone Number <span className="text-red-600">*</span>
-              </label>
-              <input
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                type="integer"
-                name="phone_number"
-                placeholder=" +254"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Delivery Location <span className="text-red-600">*</span>{" "}
-              </label>
-              <textarea
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                name="delivery_location"
-                placeholder="Nairobi, Kahawa west"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xl font-bold">
-                Select Your Offer <span className="text-red-600">*</span>{" "}
-              </label>
-  
-              <div className="flex flex-rows gap-4">
-                <input
-                  type="checkbox"
-                  name="200W_lamp@2999"
-                  value="200W AT KES. 2,999"
-                />
-                <p>200W AT KES. 2,999</p>
+            className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
+            ref={form}
+            onSubmit={sendEmail}
+          >
+            <div className="mx-auto">
+              <div className="justify-center p-2 pl-16">
+                <p className="font-bold text-lg text-red-600">
+                  Enter your Details below to place your Order
+                </p>
               </div>
-              <div className="flex flex-rows gap-4">
-                <input
-                  type="checkbox"
-                  name="300W_lamp@3500"
-                  value="300W AT KES. 3,500"
+              <div className="flex flex-col">
+                <label className="text-xl font-bold">
+                  Name <span className="text-red-600">*</span>
+                </label>
+                <Field
+                  className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="text"
+                  name="user_name"
+                  placeholder="John Doe"
+                  required
                 />
-                <p>300W AT KES. 3,500</p>
               </div>
-            </div>
-            <div>
-              <label className="text-xl font-bold">Optional Note </label>
-              <textarea
-                className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-                type="text"
-                name="optional_note"
-              />
-            </div>
-            <div>
-            <button
+              <div>
+                <label className="text-xl font-bold">
+                  Phone Number <span className="text-red-600">*</span>
+                </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="integer"
+                  name="phone_number"
+                  placeholder=" +254"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Delivery Location <span className="text-red-600">*</span>{" "}
+                </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black  border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  name="delivery_location"
+                  placeholder="Nairobi, Kahawa west"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Select Your Offer <span className="text-red-600">*</span>{" "}
+                </label>
+
+                <div className="flex flex-rows gap-4">
+                  <Field
+                    type="checkbox"
+                    name="200W_lamp@2999"
+                    value="200W AT KES. 2,999"
+                  />
+                  <p>200W AT KES. 2,999</p>
+                </div>
+                <div className="flex flex-rows gap-4">
+                  <Field
+                    type="checkbox"
+                    name="300W_lamp@3500"
+                    value="300W AT KES. 3,500"
+                  />
+                  <p>300W AT KES. 3,500</p>
+                </div>
+              </div>
+              <div>
+                <label className="text-xl font-bold">Optional Note </label>
+                <Field
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-black border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  type="text"
+                  name="optional_note"
+                />
+              </div>
+              <div>
+                <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className=" content-center p-4 bg-yellow-400 rounded-xl  hover:bg-yellow-600"
+                  disabled={loading}
+                  className=" content-center p-4 font-bold bg-yellow-400 rounded-xl  hover:bg-yellow-600"
                 >
-                  {isSubmitting ? "Submitting ..." : "Submit"}
-                  <Link to="/deliverynote"></Link>
+                  {loading ? "Submitting ..." : "Submit"}
                 </button>
+              </div>
             </div>
-          </div>
-        </Form>
+          </Form>
         )}
       </Formik>
-
-      
     </section>
   );
 };

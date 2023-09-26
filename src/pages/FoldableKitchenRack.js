@@ -1,35 +1,34 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { image1, image2, image3, image4, image5, image6, image7 } from "../img";
+import { Formik, Field, Form, isSubmitting } from "formik";
 import { useNavigate } from "react-router-dom";
 
 const FoldableKitchenRack = () => {
   const form = useRef();
   const navigate = useNavigate();
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
-    navigate("/deliverynote");
-  };
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
+    setLoading(true);
+    try {
+      const resp = await emailjs.sendForm(
         "service_j3qd6md",
         "template_qqmg52e",
         form.current,
         "6gxyHKMnQ4EBbedJQ"
-      )
-      .then(
-        (result) => {
-          if (result.text) {
-            handleSubmit();
-          }
-        },
-        (error) => {
-          console.log(error.text);
-        }
       );
+      if (resp.status === 200) {
+        console.log("Success");
+        navigate("/deliverynote");
+        // Handle success.
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      // Handle the error
+    }
+    setLoading(false);
   };
 
   return (
@@ -181,91 +180,107 @@ const FoldableKitchenRack = () => {
           </p>
         </div>
       </section>
-
-      <form
-        className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
-        ref={form}
+      <Formik
+        initialValues={{
+          username: "",
+          checked: [],
+          phonenumber: "",
+          delivery: "",
+          note: "",
+        }}
         onSubmit={sendEmail}
-        loadingText={"Sending Order"}
       >
-        <div className="mx-auto">
-          <div className="justify-center p-2 pl-16">
-            <p className="font-bold text-lg text-red-600">
-              Enter your Details below to place your Order
-            </p>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-xl font-bold">
-              Full Names <span className="text-red-600">*</span>
-            </label>
-            <input
-              className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="text"
-              name="user_name"
-              placeholder="John Doe"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xl font-bold">
-              Phone Number <span className="text-red-600">*</span>
-            </label>
-            <input
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="integer"
-              name="phone_number"
-              placeholder=" +254"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xl font-bold">
-              Delivery Location <span className="text-red-600">*</span>{" "}
-            </label>
-            <textarea
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-              name="delivery_location"
-              placeholder="Nairobi, Kahawa west"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xl font-bold">
-              Select Your Offer <span className="text-red-600">*</span>{" "}
-            </label>
+        {({ isSubmitting }) => (
+          <Form
+            className="flex flex-col hero container max-w-screen-lg mx-auto pb-10  border shadow-xl"
+            ref={form}
+            onSubmit={sendEmail}
+            loadingText={"Sending Order"}
+          >
+            <div className="mx-auto">
+              <div className="justify-center p-2 pl-16">
+                <p className="font-bold text-lg text-red-600">
+                  Enter your Details below to place your Order
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-xl font-bold">
+                  Full Names <span className="text-red-600">*</span>
+                </label>
+                <input
+                  className="appearance-none block  w-[300px]  md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="text"
+                  name="user_name"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Phone Number <span className="text-red-600">*</span>
+                </label>
+                <input
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="integer"
+                  name="phone_number"
+                  placeholder=" +254"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Delivery Location <span className="text-red-600">*</span>{" "}
+                </label>
+                <textarea
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  name="delivery_location"
+                  placeholder="Nairobi, Kahawa west"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-xl font-bold">
+                  Select Your Offer <span className="text-red-600">*</span>{" "}
+                </label>
 
-            <div className="flex flex-rows gap-4">
-              <input
-                type="checkbox"
-                name="2layers"
-                value="KITCHEN  RACK 2 LAYERS AT KES. 4,500"
-              />
-              <p> KITCHEN RACK 2 LAYERS AT KES. 4,500</p>
+                <div className="flex flex-rows gap-4">
+                  <input
+                    type="checkbox"
+                    name="2layers"
+                    value="KITCHEN  RACK 2 LAYERS AT KES. 4,500"
+                  />
+                  <p> KITCHEN RACK 2 LAYERS AT KES. 4,500</p>
+                </div>
+                <div className="flex flex-rows gap-4">
+                  <input
+                    type="checkbox"
+                    name="3layers"
+                    value="KITCHEN RACK 3 LAYERS AT KES. 5,500"
+                  />
+                  <p>KITCHEN RACK 3 LAYERS AT KES. 5,500</p>
+                </div>
+              </div>
+              <div>
+                <label className="text-xl font-bold">Optional Note </label>
+                <textarea
+                  className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                  type="text"
+                  name="optional"
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className=" content-center p-4 font-bold bg-yellow-400 rounded-xl  hover:bg-yellow-600"
+                >
+                  {loading ? "Submitting ..." : "Submit"}
+                </button>
+              </div>
             </div>
-            <div className="flex flex-rows gap-4">
-              <input
-                type="checkbox"
-                name="3layers"
-                value="KITCHEN RACK 3 LAYERS AT KES. 5,500"
-              />
-              <p>KITCHEN RACK 3 LAYERS AT KES. 5,500</p>
-            </div>
-          </div>
-          <div>
-            <label className="text-xl font-bold">Optional Note </label>
-            <textarea
-              className="appearance-none block w-[300px] md:w-[500px] bg-gray-200 text-gray-500 border  rounded-2xl  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
-              type="text"
-              name="optional"
-            />
-          </div>
-          <div>
-            <button className=" content-center  bg-yellow-400 rounded-xl hover:bg-yellow-600">
-              <input className="p-4" type="submit" value="Place Order" />
-            </button>
-          </div>
-        </div>
-      </form>
+          </Form>
+        )}
+      </Formik>
     </section>
   );
 };
