@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { image1, image2, image3, image4, image5, image6, image7 } from "../img";
-import { Formik, Field, Form, isSubmitting } from "formik";
+import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 
 const FoldableKitchenRack = () => {

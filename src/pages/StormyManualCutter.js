@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Field, Form } from "formik";
-import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import {
   stormy1,
@@ -15,14 +14,10 @@ import {
 } from "../img";
 import axios from "axios";
 
-const validate = Yup.object({
-  username: Yup.string().required("Your Username is required"),
-  phonenumber: Yup.string().required("Phone number required"),
-  deliverylocation: Yup.string().required("Delivery location required"),
-});
+//
 
 const StormyManualCutter = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <section className="py-32 content-center bg-slate-300">

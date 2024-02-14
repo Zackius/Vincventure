@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import SameCateoryProduct from "../components/SameCateoryProduct";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
-import { CategoryContext } from "../contexts/CategoryContext";
 import Button from '@mui/material/Button';
 
 

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Formik, Field, Form } from "formik";
 import emailjs from "@emailjs/browser";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import { Solar2 } from "../img";
 import { Panel } from "../img";
 import { Solar } from "../img";

@@ -7,7 +7,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://127.0.0.1:3000/products/");
+      const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
       setProducts(data);
     };
