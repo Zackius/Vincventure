@@ -8,11 +8,34 @@ import Category from "../components/Category";
 function Home() {
   const { products } = useContext(ProductContext);
   console.log(products)
-  const { categories } = useContext(CategoryContext);
+  // const { categories } = useContext(CategoryContext);
+
+  const categories= {
+    laptops: {
+        id: 1,
+        name: 'laptops'
+    },
+    smartphones: {
+        id: 2,
+        name: 'smartphones'
+    },
+    fragrances: {
+        id: 3,
+        name: 'fragrances'
+    },
+    skincare: {
+        id: 4,
+        name: 'skincare'
+    },
+    groceries: {
+        id: 5,
+        name: 'groceries'
+    }
+  };
  
 
 
-  const filteredCategories = products.filter((category) => {
+  const filteredCategories = categories.filter((category) => {
     return (
       category.category ==="laptops" || category.category === "smartphones" || category.category === "fragrances" || category.category === "skincare" || category.category === "groceries" 
     )
@@ -72,7 +95,7 @@ function Home() {
           <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
             {products
               .filter((item) => {
-                return item.category === "fragrances";
+                return item.category_id === "fragrances";
               }).slice(0, 8).map((product) => {
                 return <Product  product={product} key={product.id} />;
               })}
