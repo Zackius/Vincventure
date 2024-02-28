@@ -17,7 +17,6 @@ function Home() {
   // const filteredFregences = products.filter((product) => product.category === "fragrances");
   // const limitedFragrances = filteredFregences.slice(0, 4);
 
-
   const categories= [
      {
         id: 1,
@@ -87,11 +86,11 @@ function Home() {
       </section> */}
       <section className="pt-8 pb-8" >
         <div className="container mx-auto ">
-          <h1 className="font-medium    text-2xl pb-5">Fragrances </h1>
+          <h1 className="font-medium    text-2xl pb-5"> **** </h1>
           <div  className=" relative  grid grid-cols-2  sm:max-w-xl  md:grid-cols-4  lg:grid-cols-7 xl:grid-cols-8 gap-[8px] max-w-sm mx-auto md:max-w-none md:mx-0 ">
-            {products.forEach((product) => (
-          <Product key={product.id} product={product} />
-        ))}
+            {products.map((product) => {
+              return  (<Product key={product.id} product={product} /> )
+            })}
           </div>
        
         </div>
