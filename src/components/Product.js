@@ -6,7 +6,7 @@ import { CartContext } from '../contexts/CartContext'
 
 
 const Product = ({ product }) => {
-  const { id, title, price, images } = product
+  const { id, title, price, image } = product
   const { addToCart } = useContext(CartContext)
 
   const priceCut = (price) => {
@@ -19,7 +19,7 @@ const Product = ({ product }) => {
           <div className='w-[200px] mx-auto flex justify-center items-center'>
           <Link to={`/product/${id}`}>
             <img className='max-h-[180px] pt-4 object-contain group-hover:scale-110 transition duration-300'
-                src={images[0]} alt="productImage" />
+                src={image} alt="productImage" />
               </Link>
           </div>
           <div className='absolute top-6  -left-8 right-16  p-1  flex flex-col items-center justify-center gap-y-2 opacity-100 transition-all duration-300 '>
